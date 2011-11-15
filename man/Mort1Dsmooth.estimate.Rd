@@ -14,7 +14,7 @@
 \usage{
 Mort1Dsmooth.estimate(x, y, offset, wei, psi2,
                       B, lambda, DtD, a.init,
-                      MON, TOL, MAX.IT)
+                      MON, TOL1, MAX.IT)
 }
 
 \arguments{
@@ -29,7 +29,7 @@ Mort1Dsmooth.estimate(x, y, offset, wei, psi2,
   \item{DtD}{ Inner product of the difference matrix. } 
   \item{a.init}{ Vector with the initial coefficients. } 
   \item{MON}{ Logical switch indicating if monitoring is required. } 
-  \item{TOL}{ The tolerance level in the IWLS algorithm. } 
+  \item{TOL1}{ The tolerance level in the IWLS algorithm. } 
   \item{MAX.IT}{ The maximum number of iterations. }
 }
 \details{
@@ -45,11 +45,13 @@ Mort1Dsmooth.estimate(x, y, offset, wei, psi2,
   \item{bic}{ Bayesian Information Criterion. }
   \item{dev}{ Poisson deviance. }
   \item{tol}{ tolerance level. }
+  \item{BtWB}{ inner product of basis and weights. }
+  \item{P}{ penalty matrix. }
 }
+
 
 \author{ Carlo G Camarda }
 
-\seealso{ \code{\link{Mort1Dsmooth.update}},
-  \code{\link{Mort1Dsmooth}}. }  
+\seealso{ \code{\link{Mort1Dsmooth.update}}, \code{\link{Mort1Dsmooth}}. }  
 
 \keyword{smooth}

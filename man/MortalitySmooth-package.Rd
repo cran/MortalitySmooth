@@ -13,16 +13,17 @@
 \description{
   Smoothing one- and two-dimensional Poisson counts with P-splines
   specifically tailored to mortality data. Extra-Poisson variation can
-  be accounted. Collection of mortality data and a specific function for
-  selecting those data by country, sex, age and years. 
+  be accounted as well as mortality forecasting. Collection of mortality
+  data and a specific function for selecting those data by country, sex,
+  age and years.
 }
 
 \details{
 \tabular{ll}{
 Package: \tab MortalitySmooth\cr
 Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2009-09-17\cr
+Version: \tab 1.1\cr
+Date: \tab 2010-08-01\cr
 License: \tab What license is it under?\cr
 LazyLoad: \tab yes\cr
 }

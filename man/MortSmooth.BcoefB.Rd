@@ -14,13 +14,13 @@ MortSmooth.BcoefB(X1, X2, mat)
 }
 
 \arguments{
-  \item{X1}{ First marginal matrix. }
-  \item{X2}{ Second marginal matrix. }
+  \item{X1}{ first marginal matrix. }
+  \item{X2}{ second marginal matrix. }
   \item{mat}{ matrix to be multiplied. }
 }
 
 \details{
-Internal function used for compution elements within the
+Internal function used for computing elements within the
 \code{\link{Mort2Dsmooth}} function. 
 }
 

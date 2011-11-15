@@ -14,9 +14,9 @@
 }
 
 \arguments{
-  \item{object}{ An object of class "Mort1Dsmooth", usually, a result of
+  \item{object}{ an object of class "Mort1Dsmooth", usually, a result of
   a call to \code{Mort1Dsmooth}. } 
-  \item{\dots}{ Further arguments passed to or from other methods. }
+  \item{\dots}{ further arguments passed to or from other methods. }
 }
 
 \details{
@@ -29,27 +29,26 @@
 }
 
 \value{
-  It produce an object of class \code{summary.Mort1Dsmooth} which
+  It produces an object of class \code{summary.Mort1Dsmooth} which
   contains exactly the same components of the associated
   \code{Mort1Dsmooth} object. 
 }
 
 \author{ Carlo G Camarda }
 
-\seealso{ \code{\link{Mort1Dsmooth}}, \code{\link{summary}}. } 
+\seealso{ \code{\link{Mort1Dsmooth}}. } 
 
 \examples{
-# selected data
+## selected data
 years <- 1970:2006
 death <- selectHMDdata("Sweden", "Deaths", "Females",
                        ages = 0, years = years)
 exposure <- selectHMDdata("Sweden", "Exposures", "Females",
                           ages = 0, years = years)
-# fit
+## fit
 fit <- Mort1Dsmooth(x=years, y=death, offset=log(exposure),
                     method=3, lambda=30)
-
-# summary
+## summary
 summary(fit)
 }
 

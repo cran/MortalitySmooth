@@ -10,7 +10,8 @@
 
 \usage{
 \method{residuals}{Mort2Dsmooth}(object,
-                                 type = c("deviance", "pearson", "anscombe", "working"), ...)
+          type = c("deviance", "pearson",
+                   "anscombe", "working"), ...)
 }
 
 \arguments{
@@ -18,8 +19,9 @@
   a call to \code{Mort2Dsmooth}. } 
   \item{type}{ The type of residuals which should be returned. The
   alternatives are: "deviance" (default), "anscombe", "pearson" and
-  "working". } 
-  \item{\dots}{ Further arguments passed to or from other methods. } 
+  "working". }
+  \item{\dots}{ Further arguments passed to or from other methods. Not
+  in used. Not in use. } 
 }
 
 \details{
@@ -48,27 +50,30 @@
 \author{ Carlo G Camarda }
 
 \seealso{ \code{\link{Mort2Dsmooth}} for computing
-  \code{Mort2Dsmooth.object}, \code{\link{residuals}}. } 
+  \code{Mort2Dsmooth.object}. } 
 
 \examples{
-# selected data
+## selected data
 ages <- 30:80
 years <- 1970:2006
-death <- selectHMDdata("Switzerland", "Deaths", "Males",
+death <- selectHMDdata("Switzerland", "Deaths",
+                       "Males",
                        ages = ages, years = years) 
-exposure <- selectHMDdata("Switzerland", "Exposures", "Males",
+exposure <- selectHMDdata("Switzerland", "Exposures",
+                          "Males",
                           ages = ages, years = years)
-# fit
-fit <- Mort2Dsmooth(x=ages, y=years, Z=death, offset=log(exposure),
+## fit
+fit <- Mort2Dsmooth(x=ages, y=years, Z=death,
+                    offset=log(exposure),
                     method=3, lambdas=c(300,10))
 
-# extracting residuals
+## extracting residuals
 devR <- resid(fit, type="deviance")
 ansR <- resid(fit, type="anscombe")
 peaR <- resid(fit, type="pearson")
 worR <- resid(fit, type="working")
 
-# plotting deviance residuals over age and years
+## plotting deviance residuals over age and years
 res.list <- list(ages=ages, years=years)
 res.grid <- expand.grid(res.list)
 res.grid$dev <- c(devR)

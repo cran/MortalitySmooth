@@ -17,11 +17,11 @@ Mort2Dsmooth.se(RTBx, RTBy, nbx, nby, BWB.P1)
 
 
 \arguments{
-  \item{RTBx}{ Tensors product of B-splines basis for the x-axis. }
-  \item{RTBy}{ Tensors product of B-splines basis for the y-axis. }
-  \item{nbx}{ Number of B-splines for the x-axis. }
-  \item{nby}{ Number of B-splines for the y-axis. }
-  \item{BWB.P1}{ Inverse of the LHS of the Poisson system of equations. } 
+  \item{RTBx}{ tensors product of B-splines basis for the x-axis. }
+  \item{RTBy}{ tensors product of B-splines basis for the y-axis. }
+  \item{nbx}{ number of B-splines for the x-axis. }
+  \item{nby}{ number of B-splines for the y-axis. }
+  \item{BWB.P1}{ inverse of the LHS of the Poisson system of equations. } 
 }
 
 \details{

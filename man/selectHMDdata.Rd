@@ -15,21 +15,22 @@ selectHMDdata(country,
 }
 
 \arguments{
-  \item{country}{ Character string for the country name. }
-  \item{data}{ Character string showing type of demographic series:
+  \item{country}{ character string for the country name. }
+  \item{data}{ character string showing type of demographic series:
   either "Population", "Deaths", "Exposures" or "Rates". Default value
   "Population". } 
-  \item{sex}{ Character string showing sex of demographic series: either
+  \item{sex}{ character string showing sex of demographic series: either
   "Females", "Males" or "Total". Default value "Females". } 
-  \item{ages}{ Vector of ages to extract from data. If it is
+  \item{ages}{ vector of ages to extract from data. If it is
   \code{NULL}, all ages will be selected. } 
-  \item{years}{ Vector of years to extract from data. If it is
+  \item{years}{ vector of years to extract from data. If it is
   \code{NULL}, all available years will be selected. } 
 }
 
 \details{
-  The function needs \code{\link{HMDdata}} to be uploaded. Country names
-  is not case-sensitive and initials can be used. However,
+  \code{HMDdata} are loaded with the package.
+  
+  Country names is not case-sensitive and initials can be used. However,
   distinguishable country name is necessary. Type of \code{data} and
   \code{sex} are case-sensitive and initials can be used. 
   
@@ -40,7 +41,7 @@ selectHMDdata(country,
 }
 
 \value{
-  Matrix object from \code{\link{HMDdata}} but with a subset of country,
+  Matrix object from \code{\link{HMDdata}} with a subset of country,
   type of data, sex, ages and years. 
 }
 
@@ -49,15 +50,14 @@ selectHMDdata(country,
 \seealso{ \code{\link{HMDdata}}. }
 
 \examples{
-data(HMDdata)
-# "Complete" example
+## "Complete" example
 x <- 1950:2000
 den50 <- selectHMDdata("Denmark", "Death", "Females", 50, x)
 plot(x, den50, main="Danish female deaths at age 50")
-# "Incomplete" example with warning
+## "Incomplete" example with warning
 jap50 <- selectHMDdata("jap", "Pop", "F", 50)
 ## Wrong example (don't run)
-# selectHMDdata("Sw", "Pop", "F", 50, 2000)
+## selectHMDdata("Sw", "Pop", "F", 50, 2000)
 ## Sw can stand for both Sweden and Switzerland
 }
 

@@ -14,21 +14,21 @@ Mort2Dsmooth.update(x, y, Z, offset, psi2, wei,
 }
 
 \arguments{
-  \item{x}{ Vector for the abscissa of data. }
-  \item{y}{ Vector for the ordinate of data. }
-  \item{Z}{ Matrix of counts response. }
-  \item{offset}{ Matrix with an a priori known component (optional). }
-  \item{wei}{ An optional matrix of weights to be used in the fitting
+  \item{x}{ vector for the abscissa of data. }
+  \item{y}{ vector for the ordinate of data. }
+  \item{Z}{ matrix of counts response. }
+  \item{offset}{ matrix with an a priori known component (optional). }
+  \item{wei}{ an optional matrix of weights to be used in the fitting
   process. } 
-  \item{psi2}{ Overdispersion parameter. }
+  \item{psi2}{ overdispersion parameter. }
   \item{Bx}{ B-splines basis for the x-axis. }
   \item{By}{ B-splines basis for the y-axis. }
-  \item{nbx}{ Number of B-splines for the x-axis. }
-  \item{nby}{ Number of B-splines for the y-axis. }
-  \item{RTBx}{ Tensors product of B-splines basis for the x-axis. }
-  \item{RTBy}{ Tensors product of B-splines basis for the y-axis. }
-  \item{P}{ Penalty factor. }
-  \item{a}{ Coefficients (in a matrix). }
+  \item{nbx}{ number of B-splines for the x-axis. }
+  \item{nby}{ number of B-splines for the y-axis. }
+  \item{RTBx}{ tensors product of B-splines basis for the x-axis. }
+  \item{RTBy}{ tensors product of B-splines basis for the y-axis. }
+  \item{P}{ penalty factor. }
+  \item{a}{ coefficients (in a matrix). }
 }
 
 \details{

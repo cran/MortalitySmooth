@@ -15,16 +15,16 @@
 Mort2Dsmooth.estimate(x, y, Z, offset, psi2, wei,
                       Bx, By, nbx, nby, RTBx, RTBy,
                       lambdas, Px, Py, a.init, 
-                      MON, TOL, MAX.IT)
+                      MON, TOL1, MAX.IT)
 }
 
 \arguments{
-  \item{x}{ Vector for the abscissa of data. }
-  \item{y}{ Vector for the ordinate of data. }
-  \item{Z}{ Matrix of counts response. }
-  \item{offset}{ Matrix with an a priori known component (optional). } 
-  \item{psi2}{ Overdispersion parameter. }
-  \item{wei}{ An optional matrix of weights to be used in the fitting
+  \item{x}{ vector for the abscissa of data. }
+  \item{y}{ vector for the ordinate of data. }
+  \item{Z}{ matrix of counts response. }
+  \item{offset}{ matrix with an a priori known component (optional). } 
+  \item{psi2}{ overdispersion parameter. }
+  \item{wei}{ an optional matrix of weights to be used in the fitting
   process. } 
   \item{Bx}{ B-splines basis for the x-axis. }
   \item{By}{ B-splines basis for the y-axis. }
@@ -32,13 +32,13 @@ Mort2Dsmooth.estimate(x, y, Z, offset, psi2, wei,
   \item{nby}{ number of B-splines for the y-axis. }
   \item{RTBx}{ tensors product of B-splines basis for the x-axis. }
   \item{RTBy}{ tensors product of B-splines basis for the y-axis. }
-  \item{lambdas}{ Vector with the two smoothing parameters. }
-  \item{Px}{ Penalty factor for the x-axis. }
-  \item{Py}{ Penalty factor for the y-axis. }
-  \item{a.init}{ Matrix with the initial coefficients. }
-  \item{MON}{ Logical switch indicating if monitoring is required. }
-  \item{TOL}{ The tolerance level in the IWLS algorithm. }
-  \item{MAX.IT}{ The maximum number of iterations. }
+  \item{lambdas}{ vector with the two smoothing parameters. }
+  \item{Px}{ penalty factor for the x-axis. }
+  \item{Py}{ penalty factor for the y-axis. }
+  \item{a.init}{ matrix with the initial coefficients. }
+  \item{MON}{ logical switch indicating if monitoring is required. }
+  \item{TOL1}{ the tolerance level in the IWLS algorithm. }
+  \item{MAX.IT}{ the maximum number of iterations. }
 }
 
 \details{
@@ -55,6 +55,8 @@ Mort2Dsmooth.estimate(x, y, Z, offset, psi2, wei,
   \item{bic}{ Bayesian Information Criterion. }
   \item{dev}{ Poisson deviance. }
   \item{tol}{ tolerance level. }
+  \item{BWB}{ inner product of basis and weights. }
+  \item{P}{ penalty matrix. }
 }
 
 \author{ Carlo G Camarda }

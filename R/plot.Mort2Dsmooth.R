@@ -1,28 +1,41 @@
 plot.Mort2Dsmooth <-
 function(x, 
-                              type=c("logrates", "deaths"), ...){
-    type <- match.arg(type)
-    xx <- x$x
-    yy <- x$y
-    ZZ <- x$Z*x$w
-    E <- exp(x$offset)*x$w
-    fitted.values <- x$fitted.values * x$w
-    list. <- list(xx=xx, yy=yy, type=c("Actual", "Fitted"))
-    grid. <- expand.grid(list.)
-    Plot <- switch(type,
-                   logrates = 1,
-                   deaths = 2)
-    if(Plot==1){
-        grid.$ZZZ <- c(as.vector(log(ZZ/E)), as.vector(log(fitted.values/E)))
-        my.breaks <- quantile(grid.$ZZZ, prob=seq(0,1,0.1))
-        my.col  <- rainbow(length(my.breaks)-1)
-    }
-    if(Plot==2){
-        grid.$ZZZ <- c(as.vector(ZZ), as.vector(fitted.values))
-        my.breaks <- quantile(grid.$ZZZ, prob=seq(0,1,0.1))
-        my.col  <- rainbow(length(my.breaks)-1)
-    }
-    levelplot(ZZZ ~ yy * xx | type, grid., layout=c(2,1), at=my.breaks, col.regions=my.col, 
-              colorkey=list(col=my.col), ...)
+                              type=c("logrates", "deaths"),
+                              ...){
+  object <- x
+  type <- match.arg(type)
+  x <- object$x
+  y <- object$y
+  Z <- object$Z
+  list. <- list(x=x, y=y, type=c("Actual", "Fitted"))
+  grid. <- expand.grid(list.)
+  Plot <- switch(type,
+                 logrates = 1,
+                 deaths = 2)
+  if(Plot==1){
+    ETA <- log(Z) - object$offset
+    ETA[object$W==0] <- NA
+    ETA.hat <- matrix(MortSmooth.BcoefB(object$Bx,
+                                        object$By,
+                                        object$coef),
+                      length(x),length(y),
+                      dimnames = list(x,y))
+    grid.$Z <- c(c(ETA), c(ETA.hat))
+    my.breaks <- quantile(grid.$Z,
+                          prob=seq(0,1,0.1), na.rm=TRUE)
+    my.col  <- rainbow(length(my.breaks)-1)
+  }
+  if(Plot==2){
+    Z[object$W==0] <- NA
+    Z.hat <- object$fitted.values
+    grid.$Z <- c(c(Z), c(Z.hat))
+    my.breaks <- quantile(grid.$Z,
+                          prob=seq(0,1,0.1), na.rm=TRUE)
+    my.col  <- rainbow(length(my.breaks)-1)
+  }
+  levelplot(Z ~ y * x | type, grid.,
+            layout=c(2,1),
+            at=my.breaks, col.regions=my.col, 
+            colorkey=list(col=my.col))
 }
 

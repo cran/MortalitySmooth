@@ -13,16 +13,16 @@ Mort1Dsmooth.update(x, y, offset, wei, psi2, B, lambdaP, a)
 }
 
 \arguments{
-  \item{x}{ Vector for the abscissa of data }
-  \item{y}{ Vector of counts response }
-  \item{offset}{ Vector with an a priori known component (optional) }
-  \item{wei}{ An optional vector of weights to be used in the fitting
-  process } 
-  \item{psi2}{ An overdispersion parameter used the quasi-likelihood
-  approach } 
-  \item{B}{ B-splines basis }
-  \item{lambdaP}{ Penalty factor, included the smoothing parameter } 
-  \item{a}{ Old coefficients }
+  \item{x}{ vector for the abscissa of data. }
+  \item{y}{ vector of counts response. }
+  \item{offset}{ vector with an a priori known component (optional). }
+  \item{wei}{ an optional vector of weights to be used in the fitting
+  process. } 
+  \item{psi2}{ an overdispersion parameter used the quasi-likelihood
+  approach. } 
+  \item{B}{ B-splines basis. }
+  \item{lambdaP}{ penalty factor, included the smoothing parameter. } 
+  \item{a}{ old coefficients. }
 }
 
 \details{

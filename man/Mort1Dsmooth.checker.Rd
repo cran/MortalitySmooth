@@ -10,26 +10,28 @@
 }
 
 \usage{
-Mort1Dsmooth.checker(x, y, offset, w,
-                     overdispersion,
-                     ndx, deg, pord, lambda, df,
-                     method, control) 
+Mort1Dsmooth.checker(x, y, offset,
+                     w, overdispersion,
+                     ndx, deg, pord, lambda,
+                     df, method, coefstart,
+                     control)
 }
 
 \arguments{
-  \item{x}{ Values of the predictor variable. } 
-  \item{y}{ Set of counts response variable values.  } 
-  \item{offset}{ A vector with the offset. } 
-  \item{w}{ An optional vector of weights to be used in the fitting
+  \item{x}{ values of the predictor variable. } 
+  \item{y}{ set of counts response variable values.  } 
+  \item{offset}{ a vector with the offset. } 
+  \item{w}{ an optional vector of weights to be used in the fitting
             process. } 
-  \item{overdispersion}{ Logical on the accounting for overdisperion. }
-  \item{ndx}{ Number of internal knots -1.  } 
-  \item{deg}{ Degree of the B-splines.  } 
-  \item{pord}{ Order of differences.  } 
-  \item{lambda}{ Smoothing parameter. } 
-  \item{df}{ A number which specifies the degrees of freedom. } 
-  \item{method}{ The method for controlling the amount of smoothing. } 
-  \item{control}{ A list of control parameters. } 
+  \item{overdispersion}{ logical on the accounting for overdisperion. }
+  \item{ndx}{ number of internal knots -1.  } 
+  \item{deg}{ degree of the B-splines.  } 
+  \item{pord}{ order of differences.  } 
+  \item{lambda}{ smoothing parameter. } 
+  \item{df}{ a number which specifies the degrees of freedom. } 
+  \item{method}{ the method for controlling the amount of smoothing. }
+  \item{coefstart}{ a vector with the eventual starting coefficients. }
+  \item{control}{ a list of control parameters. } 
 }
 
 \details{

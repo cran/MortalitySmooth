@@ -13,26 +13,28 @@
 Mort2Dsmooth.checker(x, y, Z, offset, W,
                      overdispersion,
                      ndx, deg, pord, lambdas,
-                     df, method, control) 
+                     df, method, coefstart,
+                     control) 
 }
 
 \arguments{
-  \item{x}{ Vector for the abscissa of data }
-  \item{y}{ Vector for the ordinate of data }
-  \item{Z}{ Matrix of counts response }
-  \item{offset}{ Matrix with an a priori known component }
-  \item{W}{ An optional matrix of weights to be used in the fitting
-  process } 
-  \item{overdispersion}{ Logical on the accounting for overdisperion. }
-  \item{ndx}{ Vector with the number of internal knots -1 for each
+  \item{x}{ vector for the abscissa of data. }
+  \item{y}{ vector for the ordinate of data. }
+  \item{Z}{ matrix of counts response. }
+  \item{offset}{ matrix with an a priori known component. }
+  \item{W}{ an optional matrix of weights to be used in the fitting
+  process. } 
+  \item{overdispersion}{ logical on the accounting for overdisperion. }
+  \item{ndx}{ vector with the number of internal knots -1 for each
   axis. } 
-  \item{deg}{ Vector with the degree of the B-splines for each axis.  } 
-  \item{pord}{ Vector with the order of differences for each axis.  }
-  \item{lambdas}{ Vector with smoothing parameters, possibly one for
+  \item{deg}{ vector with the degree of the B-splines for each axis.  } 
+  \item{pord}{ vector with the order of differences for each axis.  }
+  \item{lambdas}{ vector with smoothing parameters, possibly one for
   axis. } 
-  \item{df}{ A number which specifies the degrees of freedom. }
-  \item{method}{ The method for controlling the amount of smoothing. } 
-  \item{control}{ A list of control parameters. }
+  \item{df}{ a number which specifies the degrees of freedom. }
+  \item{method}{ the method for controlling the amount of smoothing. }
+  \item{coefstart}{ a matrix with the eventual starting coefficients. }
+  \item{control}{ a list of control parameters. }
 }
 
 \details{
@@ -41,7 +43,8 @@ Mort2Dsmooth.checker(x, y, Z, offset, W,
 }
 
 \value{
-  A list with checked elements to be used in \code{\link{Mort2Dsmooth}} 
+  A list with checked elements to be used in
+  \code{\link{Mort2Dsmooth}}. 
 }
 
 \author{ Carlo G Camarda }

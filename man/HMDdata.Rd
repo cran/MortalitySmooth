@@ -17,24 +17,24 @@
   following components: 
 
 \describe{
-\item{country}{ Country name. }
-\item{year}{ Vector of years. }
-\item{age}{ Vector of ages. }
-\item{pop}{ List of matrices containing population with one age group
+\item{country}{ country name. }
+\item{year}{ vector of years. }
+\item{age}{ vector of ages. }
+\item{pop}{ list of matrices containing population with one age group
   per row and one column per year. Matrices: \code{female}, \code{male},
   \code{total}. } 
-\item{death}{ List of matrices containing deaths in same form as
+\item{death}{ list of matrices containing deaths in same form as
   \code{pop}. } 
-\item{exposure}{ List of matrices containing exposure in same form as
+\item{exposure}{ list of matrices containing exposure in same form as
   \code{pop}. } 
-\item{rate}{ List of matrices containing mortality rate in same form as
+\item{rate}{ list of matrices containing mortality rate in same form as
   \code{pop}. } 
 }}
 
 \details{
   The list contained 4 countries (Denmark, Japan, Sweden and
-  Switzerland). Data taken from the Human Mortality Database on 10 June
-  2009. Data are accessible either manually or using
+  Switzerland). Data taken from the Human Mortality Database on 30 August
+  2011. Data are accessible either manually or using
   \code{\link{selectHMDdata}}.
   
   For a given country, the matrices have the same dimensions. The vector
@@ -58,7 +58,7 @@
 
 \source{Human Mortality Database \url{www.mortality.org}}
 
-\references{Human Mortality Database (2009). University of California,
+\references{Human Mortality Database (2011). University of California,
   Berkeley (USA), and Max Planck Institute for Demographic Research
   (Germany). Available at \url{www.mortality.org}.} 
 
@@ -66,7 +66,7 @@
 data(HMDdata)
 plot(HMDdata$Japan$year, HMDdata$Japan$pop$female[81,],
      main="Japan population, female, age 80") 
-# list of available countries
+## list of available countries
 names(HMDdata)
 }
 

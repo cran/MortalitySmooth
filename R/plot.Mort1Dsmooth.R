@@ -1,26 +1,31 @@
 plot.Mort1Dsmooth <-
 function(x, 
-                              type=c("logrates", "deaths"),
-                              ...){
-    type <- match.arg(type)
-    xx <- x$x
-    yy <- x$y
-    fitted.values <- x$fitted.values*x$w
-    Plot <- switch(type,
-                   deaths = 1,
-                   logrates = 2)
-    if(Plot==1){
-        ran <- range(yy, fitted.values)
-        plot(xx, yy, ylim=c(ran[1], ran[2]), ...)
-        lines(xx, fitted.values, col=2, lwd=2)
-    }
-    if(Plot==2){
-        whi <- which(x$y!=0)
-        offset <- x$offset
-        lograte <- log(yy) - offset
-        ran <- range(lograte[whi], log(x$fitted) - offset)
-        plot(xx, lograte, ylim=c(ran[1], ran[2]), ...)
-        lines(xx, log(x$fitted) - offset, col=2, lwd=2)
+                              type=c("logrates", "deaths"), ...){
+  object <- x
+  type <- match.arg(type)
+  x <- object$x
+  y <- object$y
+  Plot <- switch(type,
+                 deaths = 1,
+                 logrates = 2)
+  if(Plot==1){
+    y.hat <- object$fitted.values
+    y[object$w==0] <- NA
+    matplot(x, cbind(y, y.hat),
+            ylab="deaths",
+            t=c("p", "l"), col=c(1,2),
+            pch=c(1,-1),
+            lty=c(0,1),lwd=c(1,2))
+  }
+  if(Plot==2){
+    eta <- log(y) - object$offset
+    eta[object$w==0] <- NA
+    eta.hat <- object$B %*% object$coef
+    matplot(x, cbind(eta, eta.hat),
+            ylab="logrates",
+            t=c("p", "l"), col=1:2,
+            pch=c(1,-1),
+            lty=c(0,1),lwd=c(1,2))
     }
 }
 

@@ -9,13 +9,12 @@
 }
 
 \usage{
-## S3 method for class 'HMDdata'
 \method{plot}{HMDdata}(x, ...)
 }
 
 \arguments{
-  \item{x}{ A \code{HMDdata} object. }
-  \item{\dots}{ Other plotting parameters. Either passed to \code{plot}
+  \item{x}{ a \code{HMDdata} object. }
+  \item{\dots}{ other plotting parameters. Either passed to \code{plot}
   in a one-dimensional plot or passed to \code{levelplot} in a
   two-dimensional surface. } 
 }
@@ -42,17 +41,21 @@
 \seealso{ \code{\link{HMDdata}}, \code{\link{selectHMDdata}}. }
 
 \examples{
-## plot.HMDdata
-data(HMDdata)
-# 1-D plot
-popDENf <- selectHMDdata("Denmark", "Population", "Females", 50:100, 2000) 
-plot(popDENf, main="Danish female population, 2000", xlab="ages")
-ratDENf <- selectHMDdata("Denmark", "Rates", "Females", 50:100, 2000)
-plot(ratDENf, main="Danish female log death rates, 2000", xlab="ages")
-# 2-D plot
+## 1-D plot
+popDENf <- selectHMDdata("Denmark", "Population",
+                         "Females", 50:100, 2000) 
+plot(popDENf, main="Danish female population, 2000",
+     xlab="ages", pch=2, col=2)
+ratDENf <- selectHMDdata("Denmark", "Rates",
+                         "Females", 50:100, 2000)
+plot(ratDENf, main="Danish female log death rates, 2000",
+     xlab="ages")
+
+## 2-D plot
 years <- 1950:2000
 ages <- 0:100
-popJAPf <- selectHMDdata("Japan", "Population", "Females", ages, years)
+popJAPf <- selectHMDdata("Japan", "Population", "Females",
+                         ages, years)
 plot(popJAPf, main="Japanese female population")
 ratSWEf <- selectHMDdata("Sweden", "Rates", "Females")
 plot(ratSWEf, main="Swedish female log death rates")
