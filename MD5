@@ -1,4 +1,4 @@
-bf6964ec3c8cc654ea19311799994658 *DESCRIPTION
+c61d907b4b0a3208d320f20c4a0e7954 *DESCRIPTION
 b98815492f9b7ec2a4e8b299f489c61c *R/Mort1Dsmooth.R
 b65b157aaf6d4039d932afe62cbb25ba *R/Mort1Dsmooth.checker.R
 0a429a5175abe777db54e6919795d07b *R/Mort1Dsmooth.estimate.R
@@ -16,7 +16,7 @@ c28ea84b43ebd2877c979ce93ad1f6e9 *R/MortSmooth.BcoefB.R
 607f83d0b0c701283993a00171b35ba0 *R/MortSmooth.tpower.R
 e805642e65a1503f2be7df0e86995a0b *R/plot.HMDdata.R
 5835bd4fb06f2272dbc2da5b5bd45f8b *R/plot.Mort1Dsmooth.R
-7ab15e4c37c2ef69d96ab4eed8999537 *R/plot.Mort2Dsmooth.R
+7db43b50c265c4e1bf24dc3f851c4515 *R/plot.Mort2Dsmooth.R
 bebe3153adc9b118cb2e50688c47dabc *R/predict.Mort1Dsmooth.R
 d84c5acf8487d97e7c896763346fb066 *R/predict.Mort2Dsmooth.R
 145a56cf3fc4775ad287f0d20e15cb1c *R/print.Mort1Dsmooth.R
@@ -49,7 +49,7 @@ e46d64b4866865d10a3120f20c75095a *man/MortSmooth.BcoefB.Rd
 ae0009e40f840fa9f3e37b8f7ef73b8f *man/MortalitySmooth-package.Rd
 64ee0d3cfbfeeed1d56bc3ea1e8fd116 *man/plot.HMDdata.Rd
 401c5e0a203b442d8ccdddfef8299392 *man/plot.Mort1Dsmooth.Rd
-82e3f0d0c335d24a744cd4983689206b *man/plot.Mort2Dsmooth.Rd
+a729e231bb89b1a7446bd0466449faf0 *man/plot.Mort2Dsmooth.Rd
 1bfe6ece403e5394826449be1190a550 *man/predict.Mort1Dsmooth.Rd
 43935af6a4c44d3c33c9eb5b5113208c *man/predict.Mort2Dsmooth.Rd
 79fc3d30ecb172663b35a8277b2b5000 *man/residuals.Mort1Dsmooth.Rd

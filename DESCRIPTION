@@ -1,8 +1,8 @@
 Package: MortalitySmooth
 Type: Package
 Title: Smoothing and forecasting Poisson counts with P-splines
-Version: 2.0
-Date: 2011-11-15
+Version: 2.1
+Date: 2011-12-14
 Author: Carlo G Camarda
 Maintainer: Carlo G Camarda <camarda@demogr.mpg.de>
 Depends: R (>= 2.10), svcm
@@ -15,6 +15,6 @@ Description: Smoothing one- and two-dimensional Poisson counts with
 License: GPL (>= 2)
 LazyLoad: yes
 LazyData: yes
-Packaged: 2011-11-16 09:39:08 UTC; giancarlo
+Packaged: 2011-12-15 09:57:17 UTC; giancarlo
 Repository: CRAN
-Date/Publication: 2011-11-16 12:46:31
+Date/Publication: 2011-12-15 10:39:48

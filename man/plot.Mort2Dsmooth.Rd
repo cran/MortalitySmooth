@@ -12,7 +12,13 @@
 }
 
 \usage{
-\method{plot}{Mort2Dsmooth}(x, type = c("logrates", "deaths"), ...)
+\method{plot}{Mort2Dsmooth}(x,
+                            type = c("logrates", "deaths"),
+                            palette = c("rainbow",
+                                        "heat.colors",
+                                        "terrain.colors",
+                                        "topo.colors",
+                                        "cm.colors"), ...)
 }
 
 \arguments{
@@ -20,6 +26,8 @@
   a call to \code{Mort2Dsmooth}. } 
   \item{type}{ the type of plot which should be returned. The
     alternatives are: \code{logrates} (default) and \code{death}. }
+  \item{palette}{ a string with the color palette for creating a vector
+  of contiguous colors. Default: \code{rainbow}. }
   \item{\dots}{ other plotting parameters passed to
   \code{levelplot}. Not in used. }
 }
@@ -30,13 +38,18 @@
   look at rates in log-scale, but actual and fitted counts can be
   plotted too. 
   
-  The function uses \code{levelplot} from package \code{lattice} to construct the
-  two level plots side-by-side. Plotting parameters are given and cannot be changed. A rainbow palette with 9 colors is chosen so that lower
-  values are red, followed by orange, yellow, green, blue and indigo
-  with the highest values plotted in violet. The breaks for the level
+  The function uses \code{levelplot} from package \code{lattice} to
+  construct the two level plots side-by-side. Plotting
+  parameters are given and cannot be changed. The only expection is the
+  color palette: five different palletes are available and described in
+  the associated documentation: the default \code{rainbow} as
+  well as \code{heat.colors}, \code{terrain.colors}, \code{topo.colors},
+  and \code{cm.colors}.
+  
+  A palette with 9 colors is chosen and the breaks for the level
   plot are chosen according to the deciles of distributions of actual
   and fitted log-rates (counts).
-  
+
 }
 
 \value{
@@ -60,12 +73,12 @@ exposure <- selectHMDdata("Denmark", "Exposures", "Females",
 fit <- Mort2Dsmooth(x=ages, y=years, Z=death,
                     offset=log(exposure),
                     method=3, lambdas=c(100,500)) 
-## plotting log-death rates (default)
-plot(fit)
+## plotting log-death rates
+plot(fit, palette="terrain.colors")
 ## plotting death counts
 plot(fit, type="death")
 }
 
-\keyword{hplot}
 \keyword{regression}
 \keyword{smooth}
+\keyword{hplot}

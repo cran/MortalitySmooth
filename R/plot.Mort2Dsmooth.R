@@ -1,9 +1,14 @@
 plot.Mort2Dsmooth <-
 function(x, 
                               type=c("logrates", "deaths"),
-                              ...){
+                              palette=c("rainbow",
+                                "heat.colors",
+                                "terrain.colors",
+                                "topo.colors",
+                                "cm.colors"), ...){
   object <- x
   type <- match.arg(type)
+  palette <- match.arg(palette)
   x <- object$x
   y <- object$y
   Z <- object$Z
@@ -23,7 +28,8 @@ function(x,
     grid.$Z <- c(c(ETA), c(ETA.hat))
     my.breaks <- quantile(grid.$Z,
                           prob=seq(0,1,0.1), na.rm=TRUE)
-    my.col  <- rainbow(length(my.breaks)-1)
+    n.col <- length(my.breaks)-1
+    my.col  <- get(palette)(n.col)
   }
   if(Plot==2){
     Z[object$W==0] <- NA
@@ -31,7 +37,8 @@ function(x,
     grid.$Z <- c(c(Z), c(Z.hat))
     my.breaks <- quantile(grid.$Z,
                           prob=seq(0,1,0.1), na.rm=TRUE)
-    my.col  <- rainbow(length(my.breaks)-1)
+    n.col <- length(my.breaks)-1
+    my.col  <- get(palette)(n.col)
   }
   levelplot(Z ~ y * x | type, grid.,
             layout=c(2,1),
