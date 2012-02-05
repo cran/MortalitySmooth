@@ -1,4 +1,4 @@
-MortSmooth.bbase <-
+MortSmooth_bbase <-
 function(x, xl, xr, ndx, deg){
   ## Input:
   ## x   = abcissae of data
@@ -19,7 +19,7 @@ function(x, xl, xr, ndx, deg){
   knots <- seq(xl - deg * dx, xr + deg * dx, by = dx)
   ## Truncated deg-th power functions
   ## equally-spaced at given knots along x
-  P <- outer(x, knots, MortSmooth.tpower, deg)
+  P <- outer(x, knots, MortSmooth_tpower, deg)
   ## number of B-splines which equal to the number of knots
   n <- dim(P)[2]
   ## in the numerator we have the matrix
@@ -35,4 +35,3 @@ function(x, xl, xr, ndx, deg){
   B <- (-1) ^ (deg + 1) * P %*% t(D)
   B
 }
-

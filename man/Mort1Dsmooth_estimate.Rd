@@ -1,6 +1,6 @@
-\name{Mort1Dsmooth.estimate}
+\name{Mort1Dsmooth_estimate}
 
-\alias{Mort1Dsmooth.estimate}
+\alias{Mort1Dsmooth_estimate}
 
 \title{ Estimate 1D P-splines for a given lambda}
 
@@ -12,7 +12,7 @@
 }
 
 \usage{
-Mort1Dsmooth.estimate(x, y, offset, wei, psi2,
+Mort1Dsmooth_estimate(x, y, offset, wei, psi2,
                       B, lambda, DtD, a.init,
                       MON, TOL1, MAX.IT)
 }
@@ -52,6 +52,6 @@ Mort1Dsmooth.estimate(x, y, offset, wei, psi2,
 
 \author{ Carlo G Camarda }
 
-\seealso{ \code{\link{Mort1Dsmooth.update}}, \code{\link{Mort1Dsmooth}}. }  
+\seealso{ \code{\link{Mort1Dsmooth_update}}, \code{\link{Mort1Dsmooth}}. }  
 
 \keyword{smooth}

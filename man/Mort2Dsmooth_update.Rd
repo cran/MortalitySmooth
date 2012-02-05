@@ -1,5 +1,5 @@
-\name{Mort2Dsmooth.update}
-\alias{Mort2Dsmooth.update}
+\name{Mort2Dsmooth_update}
+\alias{Mort2Dsmooth_update}
 \title{ Update a 2D Penalized-Poisson Iteration }
 
 \description{
@@ -9,7 +9,7 @@
 }
 
 \usage{
-Mort2Dsmooth.update(x, y, Z, offset, psi2, wei,
+Mort2Dsmooth_update(x, y, Z, offset, psi2, wei,
                     Bx, By, nbx, nby, RTBx, RTBy, P, a)
 }
 

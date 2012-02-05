@@ -1,4 +1,4 @@
-Mort2Dsmooth.se <-
+Mort2Dsmooth_se <-
 function(RTBx, RTBy, nbx, nby, BWB.P1){
   ## Input:
   ## RTBx: row tensor of the B-spline basis for x
@@ -17,4 +17,3 @@ function(RTBx, RTBy, nbx, nby, BWB.P1){
   SE <- matrix(sqrt(RTBx%*%SE%*%t(RTBy)), Dim)
   SE
 }
-

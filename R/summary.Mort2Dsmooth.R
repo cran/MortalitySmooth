@@ -3,4 +3,3 @@ function(object, ...){
   class(object) <- "summary.Mort2Dsmooth"
   object
 }
-

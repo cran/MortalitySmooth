@@ -81,7 +81,7 @@ function(x, y, Z, offset, W,
   if (missing(offset)) offset <- matrix(0, m, n)
   if (length(offset) == 1) offset <- matrix(offset, m, n)
 
-  check <- Mort2Dsmooth.checker(x=x, y=y, Z=Z,
+  check <- Mort2Dsmooth_checker(x=x, y=y, Z=Z,
                                 offset=offset, W=W,
                              overdispersion=overdispersion,
                                 ndx=ndx, deg=deg, pord=pord,
@@ -117,14 +117,14 @@ function(x, y, Z, offset, W,
   xr <- max(x)
   xmax <- xr + 0.01 * (xr - xl)
   xmin <- xl - 0.01 * (xr - xl)
-  Bx <- MortSmooth.bbase(x, xmin, xmax, ndx[1], deg[1])
+  Bx <- MortSmooth_bbase(x, xmin, xmax, ndx[1], deg[1])
   nbx <- ncol(Bx)
   ## B-splines basis for the ordinate (y)
   yl <- min(y)
   yr <- max(y)
   ymax <- yr + 0.01 * (yr - yl)
   ymin <- yl - 0.01 * (yr - yl)
-  By <- MortSmooth.bbase(y, ymin, ymax, ndx[2], deg[2])
+  By <- MortSmooth_bbase(y, ymin, ymax, ndx[2], deg[2])
   nby <- ncol(By)
   ## Row tensors of B-splines basis
   Bx1 <- kronecker(matrix(1, ncol=nbx, nrow=1), Bx)
@@ -154,13 +154,13 @@ function(x, y, Z, offset, W,
     ## simple ridge penalized regression
     BBx <- solve(t(Bx)%*%Bx + diag(nbx) * 1e-6, t(Bx))
     BBy <- solve(t(By)%*%By + diag(nby) * 1e-6, t(By))
-    a.init <- MortSmooth.BcoefB(BBx, BBy, eta0)
+    a.init <- MortSmooth_BcoefB(BBx, BBy, eta0)
   }else{
     a.init=a.init
   }
 
 
-  ## eta00 <- matrix(MortSmooth.BcoefB(Bx, By, a.init),
+  ## eta00 <- matrix(MortSmooth_BcoefB(Bx, By, a.init),
   ##                 m,n,dimnames = list(x,y))
   ## for(i in 1:n){
   ##   plot(x, log(Z[,i]/E[,i]), main=paste(y[i]),
@@ -188,7 +188,7 @@ function(x, y, Z, offset, W,
       i.over <- 0
       while(tol.over > 1e-03 && i.over < 5){
         i.over <- i.over+1
-        lambdas.hat <- Mort2Dsmooth.optimize(x=x, y=y, Z=Z,
+        lambdas.hat <- Mort2Dsmooth_optimize(x=x, y=y, Z=Z,
                                              offset=offset,
                                              wei=wei,
                                              psi2=psi2,
@@ -206,7 +206,7 @@ function(x, y, Z, offset, W,
                                              RANGEy=RANGEy,
                                              MAX.IT=MAX.IT,
                                              MET=MET)
-        FIT <- Mort2Dsmooth.estimate(x=x, y=y, Z=Z,
+        FIT <- Mort2Dsmooth_estimate(x=x, y=y, Z=Z,
                                      offset=offset, wei=wei,
                                      psi2=psi2,
                                      Bx=Bx, By=By,
@@ -223,7 +223,7 @@ function(x, y, Z, offset, W,
         tol.over <- abs(psi2 - psi2.old)/abs(psi2)
       }
     }else{## if psi2==1
-      lambdas.hat <- Mort2Dsmooth.optimize(x=x, y=y, Z=Z,
+      lambdas.hat <- Mort2Dsmooth_optimize(x=x, y=y, Z=Z,
                                            offset=offset,
                                            wei=wei,
                                            psi2=psi2,
@@ -240,7 +240,7 @@ function(x, y, Z, offset, W,
                                            RANGEy=RANGEy,
                                            MAX.IT=MAX.IT,
                                            MET=MET)
-      FIT <- Mort2Dsmooth.estimate(x=x, y=y, Z=Z,
+      FIT <- Mort2Dsmooth_estimate(x=x, y=y, Z=Z,
                                    offset=offset, wei=wei,
                                    psi2=psi2,
                                    Bx=Bx, By=By,
@@ -267,7 +267,7 @@ function(x, y, Z, offset, W,
   ## given lambda
   if(MET==3){
     lambdas.hat <- lambdas
-    FIT <- Mort2Dsmooth.estimate(x=x, y=y, Z=Z,
+    FIT <- Mort2Dsmooth_estimate(x=x, y=y, Z=Z,
                                  offset=offset, wei=wei,
                                  psi2=psi2,
                                  Bx=Bx, By=By,
@@ -283,8 +283,8 @@ function(x, y, Z, offset, W,
   }
   ## optimize given df
   if(MET==4){
-    Mort2Dsmooth.opt.df <- function(X){
-      FIT <- Mort2Dsmooth.estimate(x=x, y=y, Z=Z,
+    Mort2Dsmooth_opt_df <- function(X){
+      FIT <- Mort2Dsmooth_estimate(x=x, y=y, Z=Z,
                                    offset=offset, wei=wei,
                                    psi2=psi2,
                                    Bx=Bx, By=By,
@@ -303,7 +303,7 @@ function(x, y, Z, offset, W,
     l.med.x <- median(log10(RANGEx))
     l.med.y <- median(log10(RANGEy))
     
-    lambdas.hat <- cleversearch(fn=Mort2Dsmooth.opt.df,
+    lambdas.hat <- cleversearch(fn=Mort2Dsmooth_opt_df,
                               lower=c(RANGEx[1],RANGEy[1]),
                               upper=c(RANGEx[2],RANGEy[2]),
                               startvalue=c(l.med.x,l.med.y),
@@ -318,7 +318,7 @@ function(x, y, Z, offset, W,
        log10(lambdas.hat[2])<=log10(RANGEy[1])){
       warning(paste("optimal lambda for y at the edge of the grid."))
     }
-    FIT <- Mort2Dsmooth.estimate(x=x, y=y, Z=Z,
+    FIT <- Mort2Dsmooth_estimate(x=x, y=y, Z=Z,
                                  offset=offset,
                                  wei=wei,
                                  psi2=psi2,
@@ -341,7 +341,7 @@ function(x, y, Z, offset, W,
   psi2 <- psi2
   h <- FIT$h
   tolerance <- FIT$tol
-  eta.hat <- matrix(MortSmooth.BcoefB(Bx, By, coef),
+  eta.hat <- matrix(MortSmooth_BcoefB(Bx, By, coef),
                     m,n,dimnames = list(x,y))
   fitted.values <- matrix(exp(offset + eta.hat),
                           m,n,dimnames = list(x,y))
@@ -376,4 +376,3 @@ function(x, y, Z, offset, W,
   class(object) <- "Mort2Dsmooth"
   object
 }
-

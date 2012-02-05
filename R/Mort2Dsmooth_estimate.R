@@ -1,4 +1,4 @@
-Mort2Dsmooth.estimate <-
+Mort2Dsmooth_estimate <-
 function(x, y, Z, offset,
                                   psi2, wei, Bx, By,
                                   nbx, nby, RTBx, RTBy,
@@ -51,7 +51,7 @@ function(x, y, Z, offset,
   while(tol > TOL1 && i < MAX.IT){
     i <- i+1
     ## update the coefficients
-    a <- Mort2Dsmooth.update(x=x, y=y, Z=Z, offset=offset,
+    a <- Mort2Dsmooth_update(x=x, y=y, Z=Z, offset=offset,
                              psi2=psi2, wei=wei, 
                              Bx=Bx, By=By,
                              nbx=nbx, nby=nby,
@@ -68,15 +68,15 @@ function(x, y, Z, offset,
     warning(paste("parameter estimates did NOT converge in", MAX.IT, "iterations. Increase MAX.IT in control."))
   }
   ## final step after convergence
-  eta <- MortSmooth.BcoefB(Bx, By, a)
+  eta <- MortSmooth_BcoefB(Bx, By, a)
   mu <- exp(offset + eta)
   W <- mu
   z <- eta + (1/mu)* (Z - mu)
   z[which(wei==0)] <- 0
   WW <- wei*W
-  BWB <- MortSmooth.BWB(RTBx, RTBy, nbx, nby, WW)
+  BWB <- MortSmooth_BWB(RTBx, RTBy, nbx, nby, WW)
   BWBpP <- BWB + psi2*P
-  BWz <- MortSmooth.BcoefB(t(Bx),t(By),(WW*z))
+  BWz <- MortSmooth_BcoefB(t(Bx),t(By),(WW*z))
   a0 <- solve(BWBpP, c(BWz))
   a <- matrix(a0, nrow = nbx)
   ## diag of the hat-matrix
@@ -101,4 +101,3 @@ function(x, y, Z, offset,
                 BWB=BWB, P=P)
   llist
 }
-

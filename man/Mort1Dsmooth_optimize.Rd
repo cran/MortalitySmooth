@@ -1,5 +1,5 @@
-\name{Mort1Dsmooth.optimize}
-\alias{Mort1Dsmooth.optimize}
+\name{Mort1Dsmooth_optimize}
+\alias{Mort1Dsmooth_optimize}
 
 \title{ Optimize a 1D Penalized-Poisson IWLS over smoothing parameters }
 
@@ -10,7 +10,7 @@
 }
 
 \usage{
-Mort1Dsmooth.optimize(x, y, offset, wei,
+Mort1Dsmooth_optimize(x, y, offset, wei,
                       psi2, B, DtD, a.init,
                       MON, TOL1, TOL2, RANGE, MAX.IT,
                       MET)
@@ -54,8 +54,8 @@ Mort1Dsmooth.optimize(x, y, offset, wei,
 
 \author{ Carlo G Camarda }
 
-\seealso{ \code{\link{Mort1Dsmooth.update}},
-  \code{\link{Mort1Dsmooth.estimate}},
+\seealso{ \code{\link{Mort1Dsmooth_update}},
+  \code{\link{Mort1Dsmooth_estimate}},
   \code{\link{Mort1Dsmooth}}.
 }  
 

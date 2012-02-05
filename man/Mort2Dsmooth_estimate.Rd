@@ -1,6 +1,6 @@
-\name{Mort2Dsmooth.estimate}
+\name{Mort2Dsmooth_estimate}
 
-\alias{Mort2Dsmooth.estimate}
+\alias{Mort2Dsmooth_estimate}
 
 \title{ Estimate 2D P-splines for two given lambdas}
 
@@ -12,7 +12,7 @@
 }
 
 \usage{
-Mort2Dsmooth.estimate(x, y, Z, offset, psi2, wei,
+Mort2Dsmooth_estimate(x, y, Z, offset, psi2, wei,
                       Bx, By, nbx, nby, RTBx, RTBy,
                       lambdas, Px, Py, a.init, 
                       MON, TOL1, MAX.IT)
@@ -61,7 +61,7 @@ Mort2Dsmooth.estimate(x, y, Z, offset, psi2, wei,
 
 \author{ Carlo G Camarda }
 
-\seealso{ \code{\link{Mort2Dsmooth.update}},
+\seealso{ \code{\link{Mort2Dsmooth_update}},
   \code{\link{Mort2Dsmooth}}. } 
 
 \keyword{smooth}

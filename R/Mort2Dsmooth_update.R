@@ -1,4 +1,4 @@
-Mort2Dsmooth.update <-
+Mort2Dsmooth_update <-
 function(x, y, Z, offset,
                                 psi2, wei, Bx, By, nbx, nby,
                                 RTBx, RTBy, P, a){
@@ -21,16 +21,15 @@ function(x, y, Z, offset,
   ## Output:
   ## a: updated coefficients (in a matrix)
   
-  eta <- MortSmooth.BcoefB(Bx, By, a)
+  eta <- MortSmooth_BcoefB(Bx, By, a)
   mu <- exp(offset + eta)
   W <- mu
   z <- eta + (1/mu)* (Z - mu)
   z[which(wei==0)] <- 0
   WW <- wei*W
-  BWB <- MortSmooth.BWB(RTBx, RTBy, nbx, nby, WW)
-  BWz <- MortSmooth.BcoefB(t(Bx),t(By),(WW*z))
+  BWB <- MortSmooth_BWB(RTBx, RTBy, nbx, nby, WW)
+  BWz <- MortSmooth_BcoefB(t(Bx),t(By),(WW*z))
   a0 <- solve(BWB + psi2*P, c(BWz))
   a <- matrix(a0, nrow = nbx)
   a    
 }
-

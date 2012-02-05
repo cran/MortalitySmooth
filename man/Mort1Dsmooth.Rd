@@ -154,7 +154,7 @@ Mort1Dsmooth(x, y, offset, w,
   during all the grid search when \code{method} is equal to 1,
   2 or 4. Function \code{cleversearch} from package
   \code{svcm} is employed to speed the grid search. See
-  \code{\link{Mort1Dsmooth.optimize}} for details.
+  \code{\link{Mort1Dsmooth_optimize}} for details.
  
 }
 
@@ -193,7 +193,7 @@ Mort1Dsmooth(x, y, offset, w,
 \author{ Carlo G Camarda }
 
 \seealso{ \code{\link{predict.Mort1Dsmooth}},
-  \code{\link{plot.Mort1Dsmooth}}, \code{\link{Mort1Dsmooth.optimize}}. }
+  \code{\link{plot.Mort1Dsmooth}}, \code{\link{Mort1Dsmooth_optimize}}. }
 
 \examples{
 ## selected data

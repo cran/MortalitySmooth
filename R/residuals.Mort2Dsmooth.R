@@ -22,4 +22,3 @@ function(object,
                 dimnames=list(object$x, object$y))
   res
 }
-

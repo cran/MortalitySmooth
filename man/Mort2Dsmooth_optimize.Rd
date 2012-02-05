@@ -1,5 +1,5 @@
-\name{Mort2Dsmooth.optimize}
-\alias{Mort2Dsmooth.optimize}
+\name{Mort2Dsmooth_optimize}
+\alias{Mort2Dsmooth_optimize}
 
 \title{ Optimize a 2D Penalized-Poisson IWLS over smoothing parameters }
 
@@ -10,7 +10,7 @@
 }
 
 \usage{
-Mort2Dsmooth.optimize(x, y, Z, offset, wei,
+Mort2Dsmooth_optimize(x, y, Z, offset, wei,
                       psi2, Bx, By, nbx, nby,
                       RTBx, RTBy, Px, Py,
                       a.init,
@@ -66,8 +66,8 @@ Mort2Dsmooth.optimize(x, y, Z, offset, wei,
   }
 \author{ Carlo G Camarda }
 
-\seealso{ \code{\link{Mort2Dsmooth.update}},
-  \code{\link{Mort2Dsmooth.estimate}},
+\seealso{ \code{\link{Mort2Dsmooth_update}},
+  \code{\link{Mort2Dsmooth_estimate}},
   \code{\link{Mort2Dsmooth}}.
 }  
 \keyword{smooth}

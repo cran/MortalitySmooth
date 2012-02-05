@@ -1,5 +1,5 @@
-\name{MortSmooth.BWB}
-\alias{MortSmooth.BWB}
+\name{MortSmooth_BWB}
+\alias{MortSmooth_BWB}
 
 \title{ Calculates the inner product of a matrix and a sparse weight
   matrix } 
@@ -13,7 +13,7 @@
 }
 
 \usage{
-MortSmooth.BWB(RTBx, RTBy, nbx, nby, W)
+MortSmooth_BWB(RTBx, RTBy, nbx, nby, W)
 }
 
 \arguments{
@@ -50,8 +50,8 @@ smoothing. \emph{Journal of the Royal Statistical Society. Series
 \author{ Carlo G Camarda }
 
 \seealso{ \code{\link{Mort2Dsmooth}},
-  \code{\link{Mort2Dsmooth.estimate}}, 
-  \code{\link{Mort2Dsmooth.update}}. } 
+  \code{\link{Mort2Dsmooth_estimate}}, 
+  \code{\link{Mort2Dsmooth_update}}. } 
 
 \keyword{ smooth }
 \keyword{ regression }

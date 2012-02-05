@@ -1,4 +1,4 @@
-MortSmooth.BcoefB <-
+MortSmooth_BcoefB <-
 function(X1, X2, mat){
   ## Input:
   ## X1: first marginal matrix
@@ -10,4 +10,3 @@ function(X1, X2, mat){
     BcoefB <- X1%*%mat%*%t(X2)
     return(BcoefB)
 }
-

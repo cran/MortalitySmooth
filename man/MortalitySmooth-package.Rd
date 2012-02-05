@@ -22,8 +22,8 @@
 \tabular{ll}{
 Package: \tab MortalitySmooth\cr
 Type: \tab Package\cr
-Version: \tab 1.1\cr
-Date: \tab 2010-08-01\cr
+Version: \tab 2.2\cr
+Date: \tab 2012-02-05\cr
 License: \tab What license is it under?\cr
 LazyLoad: \tab yes\cr
 }

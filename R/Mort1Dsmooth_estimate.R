@@ -1,4 +1,4 @@
-Mort1Dsmooth.estimate <-
+Mort1Dsmooth_estimate <-
 function(x, y, offset, wei,
                                   psi2, B, lambda,
                                   DtD, a.init,
@@ -42,7 +42,7 @@ function(x, y, offset, wei,
   while(tol > TOL1 && i < MAX.IT){
     i <- i+1
     ## update the coefficients
-    a <- Mort1Dsmooth.update(x=x, y=y,
+    a <- Mort1Dsmooth_update(x=x, y=y,
                              offset=offset, wei=wei,
                              psi2=psi2, B=B,
                              lambdaP=lambdaP, a=a)
@@ -94,4 +94,3 @@ function(x, y, offset, wei,
                 BtWB=BtWB, P=P)
   llist
 }
-

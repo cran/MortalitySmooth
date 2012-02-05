@@ -125,4 +125,3 @@ function(country=NULL,
   class(result) <- "HMDdata"
   result
 }
-

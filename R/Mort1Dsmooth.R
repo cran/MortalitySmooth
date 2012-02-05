@@ -100,9 +100,9 @@ function(x, y, offset, w,
       offset=offset
     }
   }  
-  check <- Mort1Dsmooth.checker(x=x, y=y,
+  check <- Mort1Dsmooth_checker(x=x, y=y,
                                 offset=offset, w=w,
-                              overdispersion=overdispersion,
+                                overdispersion=overdispersion,
                                 ndx=ndx, deg=deg,
                                 pord=pord, 
                                 lambda=lambda, df=df,
@@ -134,7 +134,7 @@ function(x, y, offset, w,
   xr <- max(x)
   xmax <- xr + 0.01 * (xr - xl)
   xmin <- xl - 0.01 * (xr - xl)
-  B <- MortSmooth.bbase(x, xmin, xmax, ndx, deg)
+  B <- MortSmooth_bbase(x, xmin, xmax, ndx, deg)
   ## penalty stuff
   nb <- ncol(B)
   D. <- diff(diag(nb), diff=pord)
@@ -175,7 +175,7 @@ function(x, y, offset, w,
       i.over <- 0
       while(tol.over > 1e-03 && i.over < 5){
         i.over <- i.over+1
-        lambda.hat <- Mort1Dsmooth.optimize(x=x,
+        lambda.hat <- Mort1Dsmooth_optimize(x=x,
                                             y=y,
                                             offset=offset,
                                             wei=wei,
@@ -188,7 +188,7 @@ function(x, y, offset, w,
                                             RANGE=RANGE,
                                             MAX.IT=MAX.IT,
                                             MET=MET)
-        FIT <- Mort1Dsmooth.estimate(x=x, y=y,
+        FIT <- Mort1Dsmooth_estimate(x=x, y=y,
                                      offset=offset,
                                      wei=wei,
                                      psi2=psi2,
@@ -204,7 +204,7 @@ function(x, y, offset, w,
         tol.over <- abs(psi2 - psi2.old)/abs(psi2)
       }
     }else{## if psi2==1
-      lambda.hat <- Mort1Dsmooth.optimize(x=x,
+      lambda.hat <- Mort1Dsmooth_optimize(x=x,
                                           y=y,
                                           offset=offset,
                                           wei=wei,
@@ -217,7 +217,7 @@ function(x, y, offset, w,
                                           RANGE=RANGE,
                                           MAX.IT=MAX.IT,
                                           MET=MET)
-      FIT <- Mort1Dsmooth.estimate(x=x, y=y, offset=offset,
+      FIT <- Mort1Dsmooth_estimate(x=x, y=y, offset=offset,
                                    wei=wei,
                                    psi2=psi2,
                                    B=B, 
@@ -236,7 +236,7 @@ function(x, y, offset, w,
   ## given lambda
   if(MET==3){
     lambda.hat <- lambda
-    FIT <- Mort1Dsmooth.estimate(x=x, y=y, offset=offset,
+    FIT <- Mort1Dsmooth_estimate(x=x, y=y, offset=offset,
                                  wei=wei,
                                  psi2=psi2,
                                  B=B, 
@@ -248,8 +248,8 @@ function(x, y, offset, w,
   }
   ## optimize given df
   if(MET==4){
-    Mort1Dsmooth.opt.df <- function(X){
-      FIT <- Mort1Dsmooth.estimate(x=x, y=y, offset=offset,
+    Mort1Dsmooth_opt_df <- function(X){
+      FIT <- Mort1Dsmooth_estimate(x=x, y=y, offset=offset,
                                    wei=wei,
                                    psi2=psi2,
                                    B=B, 
@@ -261,7 +261,7 @@ function(x, y, offset, w,
     }
     by.lambda <- length(seq(log10(RANGE[1]),
                             log10(RANGE[2]),by=TOL2))
-    lambda.hat <- cleversearch(fn=Mort1Dsmooth.opt.df,
+    lambda.hat <- cleversearch(fn=Mort1Dsmooth_opt_df,
                                lower=log10(RANGE[1]),
                                upper=log10(RANGE[2]),
                                ngrid=by.lambda,
@@ -272,7 +272,7 @@ function(x, y, offset, w,
        log10(lambda.hat)<=log10(RANGE[1])){
   warning(paste("optimal lambda at the edge of the grid."))
     }
-    FIT <- Mort1Dsmooth.estimate(x=x, y=y, offset=offset,
+    FIT <- Mort1Dsmooth_estimate(x=x, y=y, offset=offset,
                                  wei=wei,
                                  psi2=psi2,
                                  B=B, 
@@ -322,4 +322,3 @@ function(x, y, offset, w,
   class(object) <- "Mort1Dsmooth"
   object
 }
-

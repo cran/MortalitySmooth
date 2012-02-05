@@ -53,7 +53,7 @@ function(object, newdata = NULL,
         xr <- max(new.x)
         xmax <- xr + 0.01 * (xr - xl)
         xmin <- xl - 0.01 * (xr - xl)
-        new.B <- MortSmooth.bbase(x=new.x,
+        new.B <- MortSmooth_bbase(x=new.x,
                                   xl=xmin, xr=xmax,
                                   ndx=new.ndx,
                                   deg=object$deg)
@@ -72,7 +72,7 @@ function(object, newdata = NULL,
         maxK0 <- xmax+deg:(deg+100)*dx
         maxK <- maxK0[which(maxK0>=xr1)[deg+1]]
         knots <- seq(minK, maxK, by=dx)
-        PP <- outer(new.x, knots, MortSmooth.tpower, deg)
+        PP <- outer(new.x, knots, MortSmooth_tpower, deg)
         nn <- dim(PP)[2]
         DD <-diff(diag(nn),diff=deg+1)/(gamma(deg+1)*dx^deg)
         new.B <- (-1)^(deg + 1) * PP %*% t(DD)
@@ -105,7 +105,7 @@ function(object, newdata = NULL,
       ## lines(new.x, cbind(1, new.x)%*%fit0$coef, col=4)
       
       ## estimating
-      new.fit <- Mort1Dsmooth.estimate(x=new.x,
+      new.fit <- Mort1Dsmooth_estimate(x=new.x,
                                        y=new.y,
                                        offset=new.offset,
                                        wei=new.w,
@@ -174,7 +174,7 @@ function(object, newdata = NULL,
         xr <- max(new.x)
         xmax <- xr + 0.01 * (xr - xl)
         xmin <- xl - 0.01 * (xr - xl)
-        new.B <- MortSmooth.bbase(x=new.x,
+        new.B <- MortSmooth_bbase(x=new.x,
                                   xl=xmin, xr=xmax,
                                   ndx=new.ndx,
                                   deg=object$deg)
@@ -193,7 +193,7 @@ function(object, newdata = NULL,
         maxK0 <- xmax+deg:(deg+100)*dx
         maxK <- maxK0[which(maxK0>=xr1)[deg+1]]
         knots <- seq(minK, maxK, by=dx)
-        PP <- outer(new.x, knots, MortSmooth.tpower, deg)
+        PP <- outer(new.x, knots, MortSmooth_tpower, deg)
         nn <- dim(PP)[2]
         DD <-diff(diag(nn),diff=deg+1)/(gamma(deg+1)*dx^deg)
         new.B <- (-1)^(deg + 1) * PP %*% t(DD)
@@ -221,7 +221,7 @@ function(object, newdata = NULL,
       ## lines(new.x, new.B%*%a.init, col=5)
 
       ## estimating
-      new.fit <- Mort1Dsmooth.estimate(x=new.x,
+      new.fit <- Mort1Dsmooth_estimate(x=new.x,
                                        y=new.y,
                                        offset=new.offset,
                                        wei=new.w,
@@ -270,4 +270,3 @@ function(object, newdata = NULL,
   }
   return(pred)
 }
-

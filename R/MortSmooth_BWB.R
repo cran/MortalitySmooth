@@ -1,4 +1,4 @@
-MortSmooth.BWB <-
+MortSmooth_BWB <-
 function(RTBx, RTBy, nbx, nby, W){
   ## Input:
   ## RTBx: row tensor of the B-spline basis for x
@@ -15,4 +15,3 @@ function(RTBx, RTBy, nbx, nby, W){
   BWB <- matrix(c(aperm(BWB,c(1,4,2,3))),ncol=nbx*nby)
   return(BWB)
 }
-

@@ -1,4 +1,4 @@
-Mort2Dsmooth.checker <-
+Mort2Dsmooth_checker <-
 function(x, y, Z, offset, W,
                                  overdispersion,
                                  ndx, deg, pord,
@@ -176,4 +176,3 @@ function(x, y, Z, offset, W,
                 control=con)
   llist
 }
-

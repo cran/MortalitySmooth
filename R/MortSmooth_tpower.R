@@ -1,4 +1,4 @@
-MortSmooth.tpower <-
+MortSmooth_tpower <-
 function(x, t, p){
   ## Input:
   ## x = abcissae of data
@@ -7,4 +7,3 @@ function(x, t, p){
   ## (x>t) is an indicator function; it is 1 when x>t
   ## and 0 when x<=t, i.e. before each knot
 }
-

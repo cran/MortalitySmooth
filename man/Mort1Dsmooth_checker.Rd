@@ -1,5 +1,5 @@
-\name{Mort1Dsmooth.checker}
-\alias{Mort1Dsmooth.checker}
+\name{Mort1Dsmooth_checker}
+\alias{Mort1Dsmooth_checker}
 
 \title{ Check Arguments for Function Mort1Dsmooth }
 
@@ -10,7 +10,7 @@
 }
 
 \usage{
-Mort1Dsmooth.checker(x, y, offset,
+Mort1Dsmooth_checker(x, y, offset,
                      w, overdispersion,
                      ndx, deg, pord, lambda,
                      df, method, coefstart,

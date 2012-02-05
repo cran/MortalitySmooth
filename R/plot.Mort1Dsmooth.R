@@ -1,11 +1,11 @@
 plot.Mort1Dsmooth <-
 function(x, 
-                              type=c("logrates", "deaths"), ...){
+                              Type=c("logrates", "deaths"), ...){
   object <- x
-  type <- match.arg(type)
+  Type <- match.arg(Type)
   x <- object$x
   y <- object$y
-  Plot <- switch(type,
+  Plot <- switch(Type,
                  deaths = 1,
                  logrates = 2)
   if(Plot==1){
@@ -28,4 +28,3 @@ function(x,
             lty=c(0,1),lwd=c(1,2))
     }
 }
-

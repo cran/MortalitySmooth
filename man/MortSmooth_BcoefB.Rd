@@ -1,5 +1,5 @@
-\name{MortSmooth.BcoefB}
-\alias{MortSmooth.BcoefB}
+\name{MortSmooth_BcoefB}
+\alias{MortSmooth_BcoefB}
 
 \title{ Multiply a matrix (from a kronecker product) by a matrix }
 
@@ -10,7 +10,7 @@
 }
 
 \usage{
-MortSmooth.BcoefB(X1, X2, mat)
+MortSmooth_BcoefB(X1, X2, mat)
 }
 
 \arguments{
@@ -31,6 +31,6 @@ A matrix that multiplies \code{X1} by \code{mat} and the transpose of
 
 \author{ Carlo G Camarda }
 
-\seealso{ \code{\link{Mort2Dsmooth}}, \code{\link{Mort2Dsmooth.estimate}}. }
+\seealso{ \code{\link{Mort2Dsmooth}}, \code{\link{Mort2Dsmooth_estimate}}. }
 
 \keyword{ smooth }

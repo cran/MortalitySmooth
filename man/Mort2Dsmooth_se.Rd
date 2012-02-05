@@ -1,5 +1,5 @@
-\name{Mort2Dsmooth.se}
-\alias{Mort2Dsmooth.se}
+\name{Mort2Dsmooth_se}
+\alias{Mort2Dsmooth_se}
 
 \title{ Compute a 2D standard errors }
 
@@ -12,7 +12,7 @@
 }
 
 \usage{
-Mort2Dsmooth.se(RTBx, RTBy, nbx, nby, BWB.P1)
+Mort2Dsmooth_se(RTBx, RTBy, nbx, nby, BWB.P1)
 }
 
 
@@ -34,7 +34,7 @@ Mort2Dsmooth.se(RTBx, RTBy, nbx, nby, BWB.P1)
   \code{\link{predict.Mort2Dsmooth}} takes care of such differences.  
   
   The Generalized Linear Array Models setting is explained in the
-  reference in \code{\link{MortSmooth.BWB}} and
+  reference in \code{\link{MortSmooth_BWB}} and
   \code{\link{Mort2Dsmooth}}. 
 }
 
@@ -45,7 +45,7 @@ A matrix of standard errors for the linear predictor term.
 \author{ Carlo G Camarda }
 
 
-\seealso{ \code{\link{Mort2Dsmooth}}, \code{\link{MortSmooth.BWB}},
+\seealso{ \code{\link{Mort2Dsmooth}}, \code{\link{MortSmooth_BWB}},
   \code{\link{predict.Mort2Dsmooth}}. } 
 
 \keyword{ smooth }

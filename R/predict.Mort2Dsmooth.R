@@ -79,7 +79,7 @@ function(object, newdata = NULL,
         xr <- max(new.x)
         xmax <- xr + 0.01 * (xr - xl)
         xmin <- xl - 0.01 * (xr - xl)
-        new.Bx <- MortSmooth.bbase(x=new.x,
+        new.Bx <- MortSmooth_bbase(x=new.x,
                                    xl=xmin, xr=xmax,
                                    ndx=new.ndx,
                                    deg=object$deg[1])
@@ -98,7 +98,7 @@ function(object, newdata = NULL,
         maxK0 <- xmax+deg:(deg+100)*dx
         maxK <- maxK0[which(maxK0>=xr1)[deg+1]]
         knots <- seq(minK, maxK, by=dx)
-        PP <- outer(new.x, knots, MortSmooth.tpower, deg)
+        PP <- outer(new.x, knots, MortSmooth_tpower, deg)
         nn <- dim(PP)[2]
         DD <-diff(diag(nn),diff=deg+1)/(gamma(deg+1)*dx^deg)
         new.Bx <- (-1)^(deg + 1) * PP %*% t(DD)
@@ -117,7 +117,7 @@ function(object, newdata = NULL,
         yr <- max(new.y)
         ymax <- yr + 0.01 * (yr - yl)
         ymin <- yl - 0.01 * (yr - yl)
-        new.By <- MortSmooth.bbase(x=new.y,
+        new.By <- MortSmooth_bbase(x=new.y,
                                    xl=ymin, xr=ymax,
                                    ndx=new.ndx,
                                    deg=object$deg[2])
@@ -135,7 +135,7 @@ function(object, newdata = NULL,
         maxK0 <- ymax+deg:(deg+100)*dx
         maxK <- maxK0[which(maxK0>=yr1)[deg+1]]
         knots <- seq(minK, maxK, by=dx)
-        PP <- outer(new.y, knots, MortSmooth.tpower, deg)
+        PP <- outer(new.y, knots, MortSmooth_tpower, deg)
         nn <- dim(PP)[2]
         DD <-diff(diag(nn),diff=deg+1)/(gamma(deg+1)*dx^deg)
         new.By <- (-1)^(deg + 1) * PP %*% t(DD)
@@ -177,10 +177,10 @@ function(object, newdata = NULL,
                    t(new.Bx))
       BBy <- solve(t(new.By)%*%new.By + diag(nby) * 1e-6,
                    t(new.By))
-      a.init <- MortSmooth.BcoefB(BBx, BBy, eta0)
+      a.init <- MortSmooth_BcoefB(BBx, BBy, eta0)
 
       ## estimating
-      new.fit <- Mort2Dsmooth.estimate(x=new.x,
+      new.fit <- Mort2Dsmooth_estimate(x=new.x,
                                        y=new.y,
                                        Z=new.Z,
                                        offset=new.offset,
@@ -194,10 +194,10 @@ function(object, newdata = NULL,
                                        Px=Px,Py=Py,
                                        a.init=a.init,
                                        MON=FALSE,
-                                       TOL=1e-6,
+                                       TOL1=1e-6,
                                        MAX.IT=50)
 
-      new.eta0 <- matrix(MortSmooth.BcoefB(new.Bx,
+      new.eta0 <- matrix(MortSmooth_BcoefB(new.Bx,
                                            new.By,
                                            new.fit$a),
                          new.m,new.n)
@@ -280,14 +280,14 @@ function(object, newdata = NULL,
       Py <- kronecker(t(Dy)%*%Dy, diag(nbx))
       P <- (object$lambdas[1]*Px) + (object$lambdas[2]*Py)
       ## 
-      eta <- MortSmooth.BcoefB(Bx, By, object$coef)
+      eta <- MortSmooth_BcoefB(Bx, By, object$coef)
       mu <- exp(object$offset + eta)
       W <- mu
       WW <- object$W*W
-      BWB <- MortSmooth.BWB(RTBx, RTBy, nbx, nby, WW)
+      BWB <- MortSmooth_BWB(RTBx, RTBy, nbx, nby, WW)
       ## 
       BWB.P1 <- solve(BWB + P)
-      se <- matrix(Mort2Dsmooth.se(RTBx=RTBx, RTBy=RTBy,
+      se <- matrix(Mort2Dsmooth_se(RTBx=RTBx, RTBy=RTBy,
                                    nbx=nbx, nby=nby,
                                    BWB.P1=BWB.P1),
                    object$m, object$n,
@@ -348,7 +348,7 @@ function(object, newdata = NULL,
         xr <- max(new.x)
         xmax <- xr + 0.01 * (xr - xl)
         xmin <- xl - 0.01 * (xr - xl)
-        new.Bx <- MortSmooth.bbase(x=new.x,
+        new.Bx <- MortSmooth_bbase(x=new.x,
                                    xl=xmin, xr=xmax,
                                    ndx=new.ndx,
                                    deg=object$deg[1])
@@ -367,7 +367,7 @@ function(object, newdata = NULL,
         maxK0 <- xmax+deg:(deg+100)*dx
         maxK <- maxK0[which(maxK0>=xr1)[deg+1]]
         knots <- seq(minK, maxK, by=dx)
-        PP <- outer(new.x, knots, MortSmooth.tpower, deg)
+        PP <- outer(new.x, knots, MortSmooth_tpower, deg)
         nn <- dim(PP)[2]
         DD <-diff(diag(nn),diff=deg+1)/(gamma(deg+1)*dx^deg)
         new.Bx <- (-1)^(deg + 1) * PP %*% t(DD)
@@ -386,7 +386,7 @@ function(object, newdata = NULL,
         yr <- max(new.y)
         ymax <- yr + 0.01 * (yr - yl)
         ymin <- yl - 0.01 * (yr - yl)
-        new.By <- MortSmooth.bbase(x=new.y,
+        new.By <- MortSmooth_bbase(x=new.y,
                                    xl=ymin, xr=ymax,
                                    ndx=new.ndx,
                                    deg=object$deg[2])
@@ -404,7 +404,7 @@ function(object, newdata = NULL,
         maxK0 <- ymax+deg:(deg+100)*dx
         maxK <- maxK0[which(maxK0>=yr1)[deg+1]]
         knots <- seq(minK, maxK, by=dx)
-        PP <- outer(new.y, knots, MortSmooth.tpower, deg)
+        PP <- outer(new.y, knots, MortSmooth_tpower, deg)
         nn <- dim(PP)[2]
         DD <-diff(diag(nn),diff=deg+1)/(gamma(deg+1)*dx^deg)
         new.By <- (-1)^(deg + 1) * PP %*% t(DD)
@@ -447,9 +447,9 @@ function(object, newdata = NULL,
                    t(new.Bx))
       BBy <- solve(t(new.By)%*%new.By + diag(nby) * 1e-6,
                    t(new.By))
-      a.init <- MortSmooth.BcoefB(BBx, BBy, eta0)
+      a.init <- MortSmooth_BcoefB(BBx, BBy, eta0)
       ## estimating
-      new.fit <- Mort2Dsmooth.estimate(x=new.x,
+      new.fit <- Mort2Dsmooth_estimate(x=new.x,
                                        y=new.y,
                                        Z=new.Z,
                                        offset=new.offset,
@@ -461,12 +461,12 @@ function(object, newdata = NULL,
                                        RTBx=RTBx, RTBy=RTBy,
                                      lambdas=object$lambdas,
                                        Px=Px,Py=Py,
-                                       a.init=a.init,
+                                       a.init=a.init,                                       
                                        MON=FALSE,
-                                       TOL=1e-6,
+                                       TOL1=1e-6,
                                        MAX.IT=50)
 
-      new.eta0 <- matrix(MortSmooth.BcoefB(new.Bx,
+      new.eta0 <- matrix(MortSmooth_BcoefB(new.Bx,
                                            new.By,
                                            new.fit$a),
                          new.m,new.n)
@@ -486,7 +486,7 @@ function(object, newdata = NULL,
                                 new.y%in%newdata$y]
       ## standard errors
       BWB.P1 <- solve(new.fit$BWB + new.fit$P)
-      new.se0 <- matrix(Mort2Dsmooth.se(RTBx=RTBx,
+      new.se0 <- matrix(Mort2Dsmooth_se(RTBx=RTBx,
                                         RTBy=RTBy,
                                         nbx=nbx, nby=nby,
                                         BWB.P1=BWB.P1),
@@ -507,4 +507,3 @@ function(object, newdata = NULL,
   }
   return(pred)
 }
-

@@ -1,4 +1,4 @@
-Mort2Dsmooth.optimize <-
+Mort2Dsmooth_optimize <-
 function(x, y, Z, offset,
                                   wei, psi2,
                                   Bx, By,
@@ -41,8 +41,8 @@ function(x, y, Z, offset,
   ## lambdas: the optimal smoothing parameters
 
   ## object function 
-  Mort2Dsmooth.opt.ic <- function(X){
-    FIT <- Mort2Dsmooth.estimate(x=x, y=y, Z=Z,
+  Mort2Dsmooth_opt_ic <- function(X){
+    FIT <- Mort2Dsmooth_estimate(x=x, y=y, Z=Z,
                                  offset=offset,
                                  psi2=psi2, wei=wei,
                                  Bx=Bx, By=By,
@@ -71,7 +71,7 @@ function(x, y, Z, offset,
   l.st.x0 <- median(lambdas.x0)
   l.st.y0 <- median(lambdas.y0)
   ## optimizing lambda
-  lambdas.hat0 <- cleversearch(fn=Mort2Dsmooth.opt.ic,
+  lambdas.hat0 <- cleversearch(fn=Mort2Dsmooth_opt_ic,
                                lower=c(log10(RANGEx[1]),
                                        log10(RANGEy[1])),
                                upper=c(log10(RANGEx[2]),
@@ -98,7 +98,7 @@ function(x, y, Z, offset,
   by.lambdas.y <- length(lambdas.y)
   by.lambda <- max(by.lambdas.x, by.lambdas.y)
   ## optimizing lambda
-  lambdas.hat <- cleversearch(fn=Mort2Dsmooth.opt.ic,
+  lambdas.hat <- cleversearch(fn=Mort2Dsmooth_opt_ic,
                               lower=c(min.l.x, min.l.y),
                               upper=c(max.l.x, max.l.y),
                               startvalue=c(l.st.x, l.st.y),
@@ -108,4 +108,3 @@ function(x, y, Z, offset,
   
   return(lambdas.hat)
 }
-

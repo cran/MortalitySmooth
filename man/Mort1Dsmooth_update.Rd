@@ -1,5 +1,5 @@
-\name{Mort1Dsmooth.update}
-\alias{Mort1Dsmooth.update}
+\name{Mort1Dsmooth_update}
+\alias{Mort1Dsmooth_update}
 \title{ Update a 1D Penalized-Poisson Iteration }
 
 \description{
@@ -9,7 +9,7 @@
 }
 
 \usage{
-Mort1Dsmooth.update(x, y, offset, wei, psi2, B, lambdaP, a) 
+Mort1Dsmooth_update(x, y, offset, wei, psi2, B, lambdaP, a) 
 }
 
 \arguments{

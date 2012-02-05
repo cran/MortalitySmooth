@@ -171,7 +171,7 @@ Mort2Dsmooth(x, y, Z, offset, W, overdispersion=FALSE,
   during all the (pseudo) grid search when \code{method} is equal to 1,
   2 or 4. Function \code{cleversearch} from package
   \code{svcm} is employed to speed the grid search. See
-  \code{\link{Mort2Dsmooth.optimize}} for details.
+  \code{\link{Mort2Dsmooth_optimize}} for details.
   
   The inner functions work using an arithmetic of arrays defined as
   Generalized Linear Array Model (GLAM) (see reference). In order to

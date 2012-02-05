@@ -1,4 +1,4 @@
-Mort1Dsmooth.update <-
+Mort1Dsmooth_update <-
 function(x, y, offset, wei, psi2, B,
                                 lambdaP, a){
   ## Input:
@@ -30,4 +30,3 @@ function(x, y, offset, wei, psi2, B,
   a <- matrix(a, ncol = 1)
   a
 }
-

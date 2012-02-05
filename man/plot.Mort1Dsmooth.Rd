@@ -10,13 +10,13 @@
 }
 
 \usage{
-\method{plot}{Mort1Dsmooth}(x, type = c("logrates", "deaths"), ...)
+\method{plot}{Mort1Dsmooth}(x, Type = c("logrates", "deaths"), ...)
 }
 
 \arguments{
   \item{x}{ an object of class "Mort1Dsmooth", usually, a result of
   a call to \code{Mort1Dsmooth}. } 
-  \item{type}{ the type of plot which should be returned. The
+  \item{Type}{ the type of plot which should be returned. The
     alternatives are: \code{logrates} (default) and \code{death}. }
   \item{\dots}{ other plotting parameters passed to \code{plot}. Not in used. }
 }

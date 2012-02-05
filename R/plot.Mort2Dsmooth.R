@@ -20,7 +20,7 @@ function(x,
   if(Plot==1){
     ETA <- log(Z) - object$offset
     ETA[object$W==0] <- NA
-    ETA.hat <- matrix(MortSmooth.BcoefB(object$Bx,
+    ETA.hat <- matrix(MortSmooth_BcoefB(object$Bx,
                                         object$By,
                                         object$coef),
                       length(x),length(y),
@@ -45,4 +45,3 @@ function(x,
             at=my.breaks, col.regions=my.col, 
             colorkey=list(col=my.col))
 }
-
