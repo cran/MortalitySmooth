@@ -36,14 +36,20 @@ Maintainer: Carlo G Camarda <camarda@demogr.mpg.de>
 }
 
 \references{ 
-Eilers and Marx (1996). Flexible Smoothing with B-splines and
-Penalties. Statistical Science. Vol. 11. 89-121.
+Camarda, C. G. (2012). {MortalitySmooth}: An {R} Package for Smoothing
+{P}oisson Counts with {P}-Splines. \emph{Journal of Statistical
+Software}. 50, 1-24. \url{http://www.jstatsoft.org/v50/i01/}.
+  
+Eilers P. H. C. and B. D. Marx (1996). Flexible Smoothing with {B}-splines and
+Penalties. \emph{Statistical Science}. 11, 89-121.
 
-Currie, Durban and Eilers (2004). Smoothing and forecasting mortality
-rates. Statistical Modelling. Vol. 4. 279-298.
+Currie, I. D., M. Durban, and P. H. C. Eilers (2004). Smoothing and forecasting mortality
+rates. \emph{Statistical Modelling}. 4, 279-298.
 
-Currie, Durban and Eilers (2006). Generalized linear array models with
-applications to multidimensional smoothing. JRSS. Vol. 68. 259-280. 
+Currie, I. D., M. Durban, and P. H. C. Eilers (2006). Generalized linear
+array models with applications to multidimentional
+smoothing. \emph{Journal of the Royal Statistical Society. Series
+  B}. 68, 259-280.
 }
 
 \keyword{ package }

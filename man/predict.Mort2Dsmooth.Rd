@@ -56,6 +56,15 @@
 
 \author{ Carlo G Camarda }
 
+\references{
+Camarda, C. G. (2012). {MortalitySmooth}: An {R} Package for Smoothing
+{P}oisson Counts with {P}-Splines. \emph{Journal of Statistical
+Software}. 50, 1-24. \url{http://www.jstatsoft.org/v50/i01/}.
+
+Currie, I. D., M. Durban, and P. H. C. Eilers (2004). Smoothing and
+forecasting mortality rates. \emph{Statistical Modelling}. 4, 279-298. 
+}
+
 \seealso{ \code{\link{Mort2Dsmooth}} for computing
   \code{Mort2Dsmooth.object}. } 
 

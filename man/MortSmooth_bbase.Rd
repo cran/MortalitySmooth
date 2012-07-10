@@ -40,11 +40,13 @@ MortSmooth_bbase(x, xl, xr, ndx, deg)
   along \code{x} for each column.  
 }
 
-\references{
-Eilers and Marx (2010). Splines, Knots, and Penalties. Wiley
-Interdisciplinary Reviews: Computational Statistics, 2, 637-653.} 
-
 \author{ Carlo G Camarda }
+
+\references{
+Eilers P. H. C. and B. D. Marx (2010). Splines, Knots, and
+Penalties. \emph{Wiley Interdisciplinary Reviews: Computational
+  Statistics}. 2, 637-653.
+} 
 
 \seealso{ \code{\link{MortSmooth_tpower}}. }
 

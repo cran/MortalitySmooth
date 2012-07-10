@@ -13,7 +13,7 @@ function(x,
     y[object$w==0] <- NA
     matplot(x, cbind(y, y.hat),
             ylab="deaths",
-            t=c("p", "l"), col=c(1,2),
+            type=c("p", "l"), col=c(1,2),
             pch=c(1,-1),
             lty=c(0,1),lwd=c(1,2))
   }
@@ -23,7 +23,7 @@ function(x,
     eta.hat <- object$B %*% object$coef
     matplot(x, cbind(eta, eta.hat),
             ylab="logrates",
-            t=c("p", "l"), col=1:2,
+            type=c("p", "l"), col=1:2,
             pch=c(1,-1),
             lty=c(0,1),lwd=c(1,2))
     }

@@ -187,10 +187,16 @@ Mort1Dsmooth(x, y, offset, w,
   \item{w }{ vector of weights used in the model. }
 }
 
-\references{ Eilers and Marx (1996). Flexible Smoothing with B-splines
-  and Penalties. Statistical Science. Vol. 11. 89-121. } 
-
 \author{ Carlo G Camarda }
+
+\references{
+Eilers P. H. C. and B. D. Marx (1996). Flexible Smoothing with {B}-splines and
+Penalties. \emph{Statistical Science}. 11, 89-121.
+
+Camarda, C. G. (2012). {MortalitySmooth}: An {R} Package for Smoothing
+{P}oisson Counts with {P}-Splines. \emph{Journal of Statistical
+Software}. 50, 1-24. \url{http://www.jstatsoft.org/v50/i01/}.
+}
 
 \seealso{ \code{\link{predict.Mort1Dsmooth}},
   \code{\link{plot.Mort1Dsmooth}}, \code{\link{Mort1Dsmooth_optimize}}. }

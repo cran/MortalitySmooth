@@ -27,10 +27,13 @@ MortSmooth_tpower(x, t, p)
   jumps of size 1 at the truncation points \code{t}. 
 }
 
-\references{ Eilers and Marx (2004). Splines, Knots, and
-  Penalties. Unpublished manuscript. } 
-
 \author{ Carlo G Camarda }
+
+\references{
+Eilers P. H. C. and B. D. Marx (2010). Splines, Knots, and
+Penalties. \emph{Wiley Interdisciplinary Reviews: Computational
+  Statistics}. 2, 637-653.
+} 
 
 \seealso{ \code{\link{MortSmooth_bbase}}. }
 

@@ -37,17 +37,17 @@
   the \code{y} axes in the \code{Mort2Dsmooth} object. 
 }
 
+\author{ Carlo G Camarda }
+
 \references{ 
   Davison, A. C. and Snell, E. J. (1991). \emph{Residuals and
   diagnostics.}  In: Statistical Theory and Modelling. In Honour of Sir
   David Cox, FRS, eds. Hinkley, D. V., Reid, N. and Snell, E. J.,
-  Chapman \& Hall. 
+  Chapman & Hall. 
 
   McCullagh P. and Nelder, J. A. (1989). \emph{Generalized Linear
- Models.} London: Chapman and Hall.
- }
-
-\author{ Carlo G Camarda }
+  Models.} London: Chapman & Hall.
+}
 
 \seealso{ \code{\link{Mort2Dsmooth}} for computing
   \code{Mort2Dsmooth.object}. } 

@@ -37,17 +37,17 @@
   in the \code{Mort1Dsmooth} object. 
 }
 
+\author{ Carlo G Camarda }
+
 \references{ 
   Davison, A. C. and Snell, E. J. (1991). \emph{Residuals and
   diagnostics.}  In: Statistical Theory and Modelling. In Honour of Sir
   David Cox, FRS, eds. Hinkley, D. V., Reid, N. and Snell, E. J.,
-  Chapman \& Hall. 
+  Chapman & Hall. 
 
   McCullagh P. and Nelder, J. A. (1989). \emph{Generalized Linear
-  Models.} London: Chapman and Hall.
+  Models.} London: Chapman & Hall.
 }
-
-\author{ Carlo G Camarda }
 
 \seealso{ \code{\link{Mort1Dsmooth}} for computing
   \code{Mort1Dsmooth.object}. } 

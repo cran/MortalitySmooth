@@ -54,13 +54,13 @@
 
 \author{Carlo G Camarda}
 
-\seealso{ \code{\link{selectHMDdata}}. }
-
 \source{Human Mortality Database \url{www.mortality.org}}
 
 \references{Human Mortality Database (2011). University of California,
   Berkeley (USA), and Max Planck Institute for Demographic Research
   (Germany). Available at \url{www.mortality.org}.} 
+
+\seealso{ \code{\link{selectHMDdata}}. }
 
 \examples{
 data(HMDdata)

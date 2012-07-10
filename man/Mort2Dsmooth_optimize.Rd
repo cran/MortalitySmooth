@@ -64,7 +64,15 @@ Mort2Dsmooth_optimize(x, y, Z, offset, wei,
   grid step up or down. Furthermore the two steps routine reduces the
   risk of finding sub-optimal smoothing parameters.   
   }
+
 \author{ Carlo G Camarda }
+
+\references{
+Camarda, C. G. (2012). {MortalitySmooth}: An {R} Package for Smoothing
+{P}oisson Counts with {P}-Splines. \emph{Journal of Statistical
+Software}. 50, 1-24. \url{http://www.jstatsoft.org/v50/i01/}.
+}
+
 
 \seealso{ \code{\link{Mort2Dsmooth_update}},
   \code{\link{Mort2Dsmooth_estimate}},

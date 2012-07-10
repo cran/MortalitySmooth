@@ -1,0 +1,19 @@
+citHeader("To cite MortalitySmooth in publications use:")
+
+citEntry(entry = "Article",
+  title        = "{MortalitySmooth}: An {R} Package for Smoothing {P}oisson Counts with {P}-Splines",
+  author       = personList(as.person("Carlo G. Camarda")),
+  journal      = "Journal of Statistical Software",
+  year         = "2012",
+  volume       = "50",
+  number       = "1",
+  pages        = "1--24",
+  url          = "http://www.jstatsoft.org/v50/i01/",
+
+  textVersion  =
+  paste("Carlo G. Camarda (2012).",
+        "MortalitySmooth: An R Package for Smoothing Poisson Counts with P-Splines.",
+        "Journal of Statistical Software, 50(1), 1-24.",
+        "URL http://www.jstatsoft.org/v50/i01/.")
+)
+

@@ -135,7 +135,7 @@ Mort2Dsmooth(x, y, Z, offset, W, overdispersion=FALSE,
   quasi-likelihood method for including an overdisperion parameter
   (\code{psi2}) in the fitting procedure. With this approach expected
   values are assumed equal to the variance multiplied by the parameter
-  \code{psi2}. See reference. Note that with overdispersed data both BIC
+  \code{psi2}. See references. Note that with overdispersed data both BIC
   and AIC might select higher lambdas, leading to smoother
   outcomes. When \code{overdispersion=FALSE} (default value) or
   \code{method=3} or \code{method=4}, \code{psi2} is estimated after the
@@ -174,7 +174,7 @@ Mort2Dsmooth(x, y, Z, offset, W, overdispersion=FALSE,
   \code{\link{Mort2Dsmooth_optimize}} for details.
   
   The inner functions work using an arithmetic of arrays defined as
-  Generalized Linear Array Model (GLAM) (see reference). In order to
+  Generalized Linear Array Model (GLAM) (see references). In order to
   avoid construction of large Kronecker product basis from the large
   number of B-splines along the axes, the function profits of the
   special structure of both the data as rectangular array and the model
@@ -217,18 +217,22 @@ Mort2Dsmooth(x, y, Z, offset, W, overdispersion=FALSE,
   \item{By}{ the B-splines basis over \code{y}. }
 }
 
-\references{ 
-Eilers, P. H. C., I. D. Currie, and M. Durban (2006). Fast and compact
-smoothing on large multidimensional grids. \emph{Computational
-  Statistics \& Data Analysis} 50, 61-76. 
+\author{ Carlo G Camarda }
+
+\references{
+  Camarda, C. G. (2012). {MortalitySmooth}: An {R} Package for Smoothing
+{P}oisson Counts with {P}-Splines. \emph{Journal of Statistical
+  Software}. 50, 1-24. \url{http://www.jstatsoft.org/v50/i01/}.
 
 Currie, I. D., M. Durban, and P. H. C. Eilers (2006). Generalized linear
 array models with applications to multidimentional
 smoothing. \emph{Journal of the Royal Statistical Society. Series
-  B}. 68, 259-280. 
-}
+  B}. 68, 259-280.
 
-\author{ Carlo G Camarda }
+Eilers, P. H. C., I. D. Currie, and M. Durban (2006). Fast and compact
+smoothing on large multidimensional grids. \emph{Computational
+  Statistics & Data Analysis}. 50, 61-76. 
+}
 
 \seealso{ \code{\link{predict.Mort2Dsmooth}},
   \code{\link{plot.Mort2Dsmooth}}. } 

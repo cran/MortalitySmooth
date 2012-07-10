@@ -38,7 +38,7 @@ A matrix of inner product of a matrix and a sparse weight matrix.
 \references{ 
 Eilers, P. H. C., I. D. Currie, and M. Durban (2006). Fast and compact
 smoothing on large multidimensional grids. \emph{Computational
-  Statistics \& Data Analysis} 50, 61-76. 
+  Statistics & Data Analysis}. 50, 61-76. 
 
 Currie, I. D., M. Durban, and P. H. C. Eilers (2006). Generalized linear
 array models with applications to multidimentional
