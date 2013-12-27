@@ -1,2 +1,1 @@
-import(lattice, svcm)
 exportPattern("^[[:alpha:]]+")

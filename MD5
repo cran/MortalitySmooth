@@ -1,5 +1,5 @@
-58b65ba7d5709f4895a8033622fb929d *DESCRIPTION
-f216a7adf471dddf9aac0be323dc9e10 *NAMESPACE
+e4660c3e317e899a706a85cceceb59ce *DESCRIPTION
+8b54e5a89fbda3af5e077053d40bec76 *NAMESPACE
 85bcc87c5d9e08f1e222957ca59b5ba8 *R/Mort1Dsmooth.R
 0ec60716caa900193a331fa2e88e8dd8 *R/Mort1Dsmooth_checker.R
 b2a08f3816cd7351d1102415f0b3f0a8 *R/Mort1Dsmooth_estimate.R
@@ -29,7 +29,7 @@ d34d3dafa69524780312859fca51cb97 *R/predict.Mort2Dsmooth.R
 b5a2d2011afc76553b14d37ab30b870e *R/selectHMDdata.R
 8fedcf8223a7b9f5dd5effb5b462ca73 *R/summary.Mort1Dsmooth.R
 c181c2cdbb83d7549960ba8a3865206c *R/summary.Mort2Dsmooth.R
-cc10770df0d21d96c7113d05c20feb16 *data/HMDdata.rda
+8f0ca401d278c83013c30f8e91e16a19 *data/HMDdata.rda
 b3c463fc48d22706634442407426c3d7 *data/datalist
 ab64ff624a8dbd0442eb1cb4cdedb6e9 *inst/CITATION
 a2fb3c56bdb9e0bd00197aaff862f8be *man/HMDdata.Rd
