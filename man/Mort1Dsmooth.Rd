@@ -228,46 +228,10 @@ legend("topright", c("Actual", "BIC", "lambda=10000"),
        col=1:3, lwd=c(1,2,2), lty=c(-1,1,1),
        pch=c(1,-1,-1))
 
-## about Extra-Poisson variation (overdispersion)
-## checking the presence of overdispersion
-fitBIC$psi2 # quite larger than 1
-## fitting accounting for overdispersion
-fitBICover <- Mort1Dsmooth(x=years, y=death,
-                           offset=log(exposure),
-                           overdispersion=TRUE)
-## difference in the selected smoothing parameters
-fitBIC$lambda;fitBICover$lambda
-## plotting both situations
-plot(fitBICover)
-lines(years, fitBIC$logmortality, col=4, lwd=2, lty=2) 
-
-## interpolation, better predict.Mort1Dsmooth
-exposure.int <- exposure
-exposure.int[20:40] <- NA
-## Wrong example (don't run)
-## Mort1Dsmooth(x=years, y=death,
-##              offset=log(exposure.int))
-## using the argument w, with warning
-w.int <- rep(1, length(years))
-w.int[20:40] <- 0
-fit1Dint <- Mort1Dsmooth(x=years, y=death,
-                         offset=log(exposure.int), w=w.int)
-plot(fit1Dint)
-
-## extrapolation, better using predict.Mort1Dsmooth
-years.ext <- seq(years[1], years[length(years)]+20)
-exposure.ext <- c(exposure, rep(NA, 20))
-death.ext <- c(death, rep(NA, 20))
-## Wrong example (don't run)
-## Mort1Dsmooth(x=years.ext, y=death.ext,
-##              offset=log(exposure.ext))
-## using the argument w, with warning
-w.ext <- c(rep(1, length(years)), rep(0, 20))
-## using the optimal lambda from fitBICover
-fit1Dext <- Mort1Dsmooth(x=years.ext, y=death.ext,
-                         offset=log(exposure.ext), w=w.ext,
-                         method=3, lambda=fitBICover$lambda)
-plot(fit1Dext)
+## see vignettes for examples on
+## - Extra-Poisson variation
+## - interpolation
+## - extrapolation
 }
 
 \keyword{models}

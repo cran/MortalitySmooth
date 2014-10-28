@@ -1,3 +1,5 @@
+utils::globalVariables(c('HMDdata'))
+
 selectHMDdata <-
 function(country=NULL, 
                           data=c("Population",
@@ -25,7 +27,8 @@ function(country=NULL,
   ##          and country-data-sex attributes 
   ##          and selected ages and years
   ##          as row/colnames
-  
+  HMDdata <- NULL
+  data(HMDdata, envir = environment())
   ## about country:
   ## if the user doesn't provide the country name
   ## stop the function and gives an error message

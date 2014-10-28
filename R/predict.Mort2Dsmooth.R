@@ -292,13 +292,21 @@ function(object, newdata = NULL,
                                    BWB.P1=BWB.P1),
                    object$m, object$n,
                    dimnames=list(object$x, object$y))
+      ## check usage of overdispersion
+      check.over <- eval(object$call$overdispersion)
+      if(is.null(check.over)){
+        check.over <- FALSE
+      }
+      if(check.over){
+        se.inflate <- sqrt(object$psi2)
+        se <- se * se.inflate
+      }
       fit <- switch(type,
-                    link = object$linear.predictors -
-                    object$offset,
+                    link = object$linear.predictors - object$offset,
                     response = object$fitted.values)
       se.fit <- switch(type,
                        link = se,
-            response = object$fitted.values * (exp(se) -1))
+                       response = object$fitted.values * (exp(se) -1))
     }else{
       ## YES newdata ## YES newdata
       ## check newdata as a list
@@ -494,7 +502,15 @@ function(object, newdata = NULL,
                         dimnames=list(new.x, new.y))
       new.se <- new.se0[new.x%in%newdata$x,
                         new.y%in%newdata$y]
-      
+      ## check usage of overdispersion
+      check.over <- eval(object$call$overdispersion)
+      if(is.null(check.over)){
+        check.over <- FALSE
+      }
+      if(check.over){
+        se.inflate <- sqrt(object$psi2)
+        new.se <- new.se * se.inflate
+      }
       fit <- switch(type,
                     link = new.eta,
                     response = new.fitted)   

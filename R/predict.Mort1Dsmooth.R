@@ -141,14 +141,21 @@ function(object, newdata = NULL,
       ori.solBtWB <- solve(ori.BtWB + ori.PtP)
       ori.solBtWB1 <- ori.solBtWB%*%ori.BtWB %*% ori.solBtWB
       ori.se <- sqrt(diag(ori.B%*%ori.solBtWB1%*%t(ori.B)))
+      ## check usage of overdispersion
+      check.over <- eval(object$call$overdispersion)
+      if(is.null(check.over)){
+        check.over <- FALSE
+      }
+      if(check.over){
+        se.inflate <- sqrt(object$psi2)
+        ori.se <- ori.se * se.inflate
+      }
       fit <- switch(type,
-                    link = object$linear.predictors -
-                    object$offset,
+                    link = object$linear.predictors - object$offset,
                     response = object$fitted.values)
       se <- switch(type,
                    link = ori.se,
-                   response=object$fitted.values*
-                   (exp(ori.se) -1))
+                   response = object$fitted.values * (exp(ori.se) -1))
       pred <- list(fit=fit, se.fit=se)
     }else{
       ## original data
@@ -259,6 +266,16 @@ function(object, newdata = NULL,
       se.fitted0 <- new.fitted0*(exp(se.eta0)-1)
       se.fitted0[!whi] <- NA
       se.fitted <- se.fitted0[new.x%in%newdata]
+      ## check usage of overdispersion
+      check.over <- eval(object$call$overdispersion)
+      if(is.null(check.over)){
+        check.over <- FALSE
+      }
+      if(check.over){
+        se.inflate <- sqrt(object$psi2)
+        se.eta <- se.eta * se.inflate
+        se.fitted <- se.fitted * se.inflate
+      }
       se <- switch(type,
                    link = se.eta,
                    response = se.fitted)

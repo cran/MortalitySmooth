@@ -314,6 +314,7 @@ function(x, y, offset, w,
                  call=call, n=m, tolerance=tolerance,
                  ## smoothing specifications
                  ndx=ndx, deg=deg, pord=pord, B=B,
+                 ## overdispersion=over,
                  ## observed values
                  x=x, y=as.vector(y),
                  offset=as.vector(offsetINIT),

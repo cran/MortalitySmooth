@@ -266,56 +266,10 @@ levelplot(lmx ~ years * ages , grid.,
           at=quantile(grid.$lmx, seq(0,1,length=10)),
           col.regions=rainbow(9))
 
-## about Extra-Poisson variation (overdispersion)
-## checking the presence of overdispersion
-fitBIC$psi2
-## fitting accounting for overdispersion
-fitBICover <- Mort2Dsmooth(x=ages, y=years, Z=death,
-                           offset=log(exposure),
-                           overdispersion=TRUE)
-## difference in the selected smoothing parameters
-fitBIC$lambdas;fitBICover$lambdas
-
-## interpolation when exposure equal to zero
-new.exposure <- exposure
-new.exposure[20:30, ] <- 0
-## Wrong example (don't run)
-## fit2Dint <- Mort2Dsmooth(x=ages, y=years, Z=death,
-##                         offset=log(new.exposure))
-## using the argument W, with warning
-W <- matrix(1, length(ages), length(years))
-W[20:30, ] <- 0
-fit2Dint <- Mort2Dsmooth(x=ages, y=years, Z=death,
-                         offset=log(new.exposure), W=W,
-                         method=3, lambdas=c(100, 100))
-
-plot(fit2Dint)
-
-## using only 90% of the data
-W <- matrix(1, length(ages), length(years))
-set.seed(3)
-zeros <- sample(x=1:prod(dim(W)),
-                size=round(prod(dim(W))/100*90),
-                replace=FALSE)
-W[zeros] <- 0
-fit2Dint <- Mort2Dsmooth(x=ages, y=years, Z=death,
-                         offset=log(exposure), W=W,
-                         method=3, lambdas=c(100, 100))
-plot(fit2Dint)
-
-## extrapolation over years, better predict.Mort2Dsmooth
-years.new <- 1950:2025
-M <- matrix(0, nrow=length(ages),
-            ncol=length(years.new)-length(years))
-death.new <- cbind(death, M)
-exposure.new <- cbind(exposure, M)
-W <- matrix(1, length(ages), length(years))
-W.new <- cbind(W, M)
-
-fit2Dext <- Mort2Dsmooth(x=ages, y=years.new, Z=death.new,
-                         offset=log(exposure.new), W=W.new,
-                         method=3, lambdas=c(1000, 316))
-plot(fit2Dext)
+## see vignettes for examples on
+## - Extra-Poisson variation
+## - interpolation
+## - extrapolation
 }
 
 \keyword{models}
