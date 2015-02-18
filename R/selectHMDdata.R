@@ -1,5 +1,3 @@
-utils::globalVariables(c('HMDdata'))
-
 selectHMDdata <-
 function(country=NULL, 
                           data=c("Population",
